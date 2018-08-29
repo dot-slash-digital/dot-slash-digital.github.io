@@ -48,8 +48,7 @@ body {
 /* width = 1200px or larger */
 @media (min-width: 1200px) {
     #navbar {
-        padding-left: calc(24px + 112px);
-        padding-right: calc(24px + 112px);
+        padding: 60px calc(24px + 112px);
     }
 }
 
@@ -132,8 +131,7 @@ li {
 /* width = 1200px or larger */
 @media (min-width: 1200px) {
     #home-text {
-        padding-left: calc(24px + 112px);
-        padding-right: calc(24px + 112px);
+        padding: 100px calc(24px + 112px);
     }
 }
 
@@ -149,6 +147,54 @@ li {
     font-size: 36px;
     line-height: 0.9;
 }
+
+/* ------------------------ Information -------------------------- */
+
+#info-section {
+    width: 100%;
+    padding: 0 24px 60px 24px;
+    transition: 0.5s all;
+    position: absolute;
+    bottom: 0;
+}
+
+/* width = 1200px or larger */
+@media (min-width: 1200px) {
+    #info-section {
+        padding: 0 calc(24px + 112px) 60px calc(24px + 112px);
+    }
+}
+
+#info-clock {
+    height: 75px;
+    width: 75px;
+    border-radius: 50%;
+    background-color: red;
+    float: left;
+    margin-right: 15px;
+}
+
+#info-location {
+    font-size: 20px;
+    line-height: 37px;
+}
+
+/* ------------------------ Scroll Arrow ------------------------- */
+
+#scroll-arrow {
+    text-align: center;
+    height: 75px;
+    width: 100%;
+    bottom: 0;
+    position: absolute;
+}
+
+#scroll-arrow i {
+    font-size: 50px;
+    width: 50px;
+    height: 50px;
+}
+
 
 /* --------------------------------------------------------------- */
 /* ------------------------ Work Section ------------------------- */
@@ -242,3 +288,39 @@ li {
 /* --------------------------------------------------------------- */
 /* --------------------------------------------------------------- */
 
+
+
+/* --------------------------------------------------------------- */
+/* --------------------------------------------------------------- */
+/* --------------------------------------------------------------- */
+/* ------------------------ Contact Button ----------------------- */
+/* --------------------------------------------------------------- */
+/* --------------------------------------------------------------- */
+/* --------------------------------------------------------------- */
+
+#contact-button {
+    width: 100%;
+    padding: 0 24px 60px 24px;
+    transition: 0.5s all;
+    position: fixed;
+    bottom: 0;
+}
+
+/* width = 1200px or larger */
+@media (min-width: 1200px) {
+    #contact-button {
+        padding: 0 calc(24px + 112px) 60px calc(24px + 112px);
+    }
+}
+
+#contact-button div {
+    height: 75px;
+    width: 75px;
+    border-radius: 50%;
+    background-color: blue;
+    float: right;
+}
+
+#contact-button div i {
+    color: #f8f8f8;
+}

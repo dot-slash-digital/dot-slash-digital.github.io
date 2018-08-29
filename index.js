@@ -14,5 +14,5 @@ $(window).resize(function() {
 });
 
 function fullSizeHome() {
-    $("#home").height($(window).height());
+    $("#home-section").height($(window).height());
 }
