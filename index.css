@@ -166,12 +166,67 @@ li {
 }
 
 #info-clock {
-    height: 75px;
     width: 75px;
-    border-radius: 50%;
-    background-color: red;
     float: left;
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
     margin-right: 15px;
+} 
+
+#clock {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    border: 1px solid;
+    position: relative;
+}
+
+#dot, #sec, #min, #hour {
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+}
+
+#sec, #min, #hour {
+    border-radius: 2px;
+    -webkit-transform-origin: center bottom;
+    -webkit-transform: rotate(0deg);
+}
+
+#dot {
+    width: 3px;
+    height: 3px;
+    background: red;
+    border-radius: 50%;
+    top: 0;
+    bottom: 0;
+    z-index: 12;
+}
+
+#sec {
+    width: 0.5px;
+    height: 30px;
+    background: red;
+    top: 7.5px;
+    z-index: 10;
+}
+
+#min {
+    width: 2px;
+    height: 28.125px;
+    background: black;
+    top: 9.375px;
+    z-index: 8;
+}
+
+#hour {
+    width: 3px;
+    height: 18.75px;
+    background: black;
+    top: 18.75px;
+    z-index: 6;
 }
 
 #info-location {
@@ -317,8 +372,11 @@ li {
     height: 75px;
     width: 75px;
     border-radius: 50%;
-    background-color: blue;
+    background-color: #004ecb;
     float: right;
+    text-align: center;
+    line-height: 75px;
+    font-size: 36px;
 }
 
 #contact-button div i {
