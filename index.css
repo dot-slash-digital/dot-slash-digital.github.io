@@ -299,9 +299,10 @@ li {
 }
 
 #work-1-text {
-    width: 40%;
+    width: 38%;
     float: left;
     padding-top: 50px;
+    padding-right: 2%;
 }
 
 #work-1-mockup {
@@ -309,8 +310,12 @@ li {
     float: right;
 }
 
-#work-1-text .work-title, #work-1-text .work-summary, #work-1-text .work-button {
-    text-align: left;
+#work-1-text .work-title, #work-1-text .work-summary {
+    text-align: right;
+}
+
+#work-1-text .work-button {
+    float: right;
 }
 
 /* -------------------------- Project 2 -------------------------- */
@@ -331,9 +336,10 @@ li {
 }
 
 #work-2-text {
-    width: 40%;
+    width: 38%;
     float: right;
     padding-top: 50px;
+    padding-left: 2%;
 }
 
 #work-2-mockup {
@@ -342,11 +348,25 @@ li {
 }
 
 #work-2-text .work-title, #work-2-text .work-summary {
-    text-align: right;
+    text-align: left;
 }
 
 #work-2-text .work-button {
-    float: right;
+    float: left;
+}
+
+/* ---------------------- View All Projects ---------------------- */
+
+#work-view {
+    margin: 60px 0;
+    padding: 15px 0;
+    text-align: center;
+    clear: both;
+}
+
+#work-view .work-button {
+    background-color: white !important;
+    color: black !important;
 }
 
 /* --------------------------------------------------------------- */
