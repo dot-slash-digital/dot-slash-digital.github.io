@@ -458,9 +458,57 @@ body {
 /* --------------------------------------------------------------- */
 
 #clients-section {
-    background-color: blue;
-    height: 200px;
+    background-color: #ececec;
     width: 100%;
+    padding: 120px 24px;
+}
+
+/* width = 1200px or larger */
+@media (min-width: 1200px) {
+    #clients-section {
+        padding: 120px calc(24px + 112px);
+    }
+}
+
+/* ----------------------- Clients Text ------------------------- */
+
+#clients-text {
+    width: 35%;
+    margin-left: 5%;
+    float: right;
+}
+
+#clients-title {
+    font-size: 72px;
+    line-height: 0.9;
+}
+
+#clients-summary {
+    font-size: 24px;
+    line-height: 0.9;
+}
+
+/* ----------------------- Clients List ------------------------- */
+
+#clients-list {
+    width: 60%;
+    float: left;
+}
+
+.clients-list-outer {
+    float: left;
+}
+
+.clients-top-row {
+    margin-bottom: 40px !important;
+}
+
+.clients-logo {
+    width: 150px;
+    height: 150px;
+    background-color: red;
+    margin: 0 20px;
+    float: left;
 }
 
 /* --------------------------------------------------------------- */
