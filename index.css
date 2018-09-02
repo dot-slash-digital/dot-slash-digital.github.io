@@ -5,9 +5,8 @@ I.   Home Page
   b. Work
   c. Services
   d. Clients
-  e. Team
-  f. Contact
-  g. Footer
+  e. Contact
+  f. Footer
 II.  Work Page
 III. Services Page
 IV.  About Page
@@ -57,14 +56,14 @@ body {
     width: auto;
 }
 
-ul {
+#navbar ul {
     list-style: none;
     margin: 0;
     padding: 0;
     float: right;
 }
 
-li {
+#navbar ul li {
     float: left;
     transition: 0.5s all;
 }
@@ -374,10 +373,85 @@ li {
 /* --------------------------------------------------------------- */
 
 #services-section {
-    background-color: green;
-    height: 200px;
+    background-color: #f0f0f0;
     width: 100%;
+    padding: 120px 24px;
 }
+
+/* width = 1200px or larger */
+@media (min-width: 1200px) {
+    #services-section {
+        padding: 120px calc(24px + 112px);
+    }
+}
+
+/* ----------------------- Services Text ------------------------- */
+
+#services-text {
+    width: 35%;
+    margin-right: 5%;
+    padding-bottom: 25px;
+    float: left;
+}
+
+#services-title {
+    font-size: 72px;
+    line-height: 0.9;
+}
+
+#services-summary {
+    font-size: 24px;
+    line-height: 0.9;
+    margin: 10px 0 50px 0;
+}
+
+/* ----------------------- Services List ------------------------- */
+
+#services-list {
+    width: 60%;
+    float: right;
+}
+
+.services-col {
+    float: left;
+    width: 25%;
+}
+
+.services-col span {
+    padding-bottom: 5px;
+}
+
+.services-col ul {
+    font-size: 16px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.services-col ul li {
+    font-size: 14px;
+    text-align: left;
+    margin: 0;
+}
+
+/* ---------------------- View All Services ---------------------- */
+
+#services-view {
+    margin: 60px 0 30px 0;
+    padding: 15px 0;
+    text-align: center;
+    clear: both;
+}
+
+#services-view a {
+    background-color: white;
+    color: black !important;
+    padding: 17px 30px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 5px 15px 0 rgba(0,0,0,0.15);
+    box-shadow: 0 5px 15px 0 rgba(0,0,0,0.15);
+}
+
 
 /* --------------------------------------------------------------- */
 /* ----------------------- Clients Section ----------------------- */
@@ -385,16 +459,6 @@ li {
 
 #clients-section {
     background-color: blue;
-    height: 200px;
-    width: 100%;
-}
-
-/* --------------------------------------------------------------- */
-/* ------------------------ Team Section ------------------------- */
-/* --------------------------------------------------------------- */
-
-#team-section {
-    background-color: red;
     height: 200px;
     width: 100%;
 }
@@ -408,8 +472,6 @@ li {
     height: 200px;
     width: 100%;
 }
-
-
 
 
 
