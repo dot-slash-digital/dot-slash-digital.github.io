@@ -256,9 +256,97 @@ li {
 /* --------------------------------------------------------------- */
 
 #work-section {
-    background-color: red;
-    height: 200px;
+    background-color: #f4f4f4;
     width: 100%;
+    padding: 120px 0;
+}
+
+.work-title {
+    font-size: 48px;
+    line-height: 0.9;
+}
+
+.work-summary {
+    font-size: 24px;
+    line-height: 0.9;
+    margin: 10px 0 50px 0;
+}
+
+.work-button {
+    background-color: black;
+    color: white !important;
+    padding: 17px 30px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 5px 15px 0 rgba(0,0,0,0.15);
+    box-shadow: 0 5px 15px 0 rgba(0,0,0,0.15);
+}
+
+/* -------------------------- Project 1 -------------------------- */
+
+#work-1 {
+    width: 100%;
+    padding: 60px 24px;
+    transition: 0.5s all;
+    clear: both;
+    overflow: auto;
+}
+
+/* width = 1200px or larger */
+@media (min-width: 1200px) {
+    #work-1 {
+        padding: 60px calc(24px + 112px);
+    }
+}
+
+#work-1-text {
+    width: 40%;
+    float: left;
+    padding-top: 50px;
+}
+
+#work-1-mockup {
+    width: 60%;
+    float: right;
+}
+
+#work-1-text .work-title, #work-1-text .work-summary, #work-1-text .work-button {
+    text-align: left;
+}
+
+/* -------------------------- Project 2 -------------------------- */
+
+#work-2 {
+    width: 100%;
+    padding: 60px 24px;
+    transition: 0.5s all;
+    clear: both;
+    overflow: auto;
+}
+
+/* width = 1200px or larger */
+@media (min-width: 1200px) {
+    #work-2 {
+        padding: 60px calc(24px + 112px);
+    }
+}
+
+#work-2-text {
+    width: 40%;
+    float: right;
+    padding-top: 50px;
+}
+
+#work-2-mockup {
+    width: 60%;
+    float: left;
+}
+
+#work-2-text .work-title, #work-2-text .work-summary {
+    text-align: right;
+}
+
+#work-2-text .work-button {
+    float: right;
 }
 
 /* --------------------------------------------------------------- */
@@ -377,6 +465,9 @@ li {
     text-align: center;
     line-height: 75px;
     font-size: 36px;
+    
+    -webkit-box-shadow: 0 5px 15px 0 rgba(0,0,0,0.15);
+    box-shadow: 0 5px 15px 0 rgba(0,0,0,0.15);
 }
 
 #contact-button div i {
