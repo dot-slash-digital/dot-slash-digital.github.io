@@ -153,23 +153,6 @@ body {
     line-height: 37px;
 }
 
-/* ------------------------ Scroll Arrow ------------------------- */
-
-#scroll-arrow {
-    text-align: center;
-    height: 75px;
-    width: 100%;
-    bottom: 0;
-    position: absolute;
-}
-
-#scroll-arrow i {
-    font-size: 50px;
-    width: 50px;
-    height: 50px;
-}
-
-
 /* --------------------------------------------------------------- */
 /* ------------------------ Work Section ------------------------- */
 /* --------------------------------------------------------------- */
@@ -505,17 +488,18 @@ body {
 /* --------------------------------------------------------------- */
 
 #contact-button {
-    width: 100%;
-    padding: 0 24px 24px 24px;
-    transition: 0.5s all;
     position: fixed;
     bottom: 0;
+    right: 0;
+    margin: 24px;
+    transition: 0.5s all;
+    cursor: pointer;
 }
 
 /* width = 1200px or larger */
 @media (min-width: 1200px) {
     #contact-button {
-        padding: 0 calc(24px + 112px) 60px calc(24px + 112px);
+        margin: 0 calc(24px + 112px) 60px calc(24px + 112px);
     }
 }
 
