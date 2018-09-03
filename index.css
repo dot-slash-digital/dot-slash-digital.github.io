@@ -11,6 +11,7 @@ III. Services Page
 IV.  About Page
 V.   Contact Page
 VI.  Navbar
+  a. Mobile Menu
 VII. Footer
 
 */
@@ -70,7 +71,7 @@ body {
 
 #info-section {
     width: 100%;
-    padding: 0 24px 60px 24px;
+    padding: 0 24px 24px 24px;
     transition: 0.5s all;
     position: absolute;
     bottom: 0;
@@ -505,7 +506,7 @@ body {
 
 #contact-button {
     width: 100%;
-    padding: 0 24px 60px 24px;
+    padding: 0 24px 24px 24px;
     transition: 0.5s all;
     position: fixed;
     bottom: 0;
@@ -545,7 +546,7 @@ body {
 /* --------------------------------------------------------------- */
 
 nav {
-    padding: 60px 24px;
+    padding: 24px 24px 60px 24px;
     transition: 0.5s all;
 }
 
@@ -580,6 +581,19 @@ nav ul li {
 .menu-item {
     font-size: 14px;
     line-height: 60px;
+}
+
+#menu-mobile-button {
+    display: none;
+    float: right;
+    font-size: 24px;
+    line-height: 60px;
+    width: 60px;
+    text-align: center;
+}
+
+#menu-mobile-button i {
+    cursor: pointer;
 }
 
 /* width = 1200px or larger */
@@ -622,6 +636,74 @@ nav ul li {
     nav ul {
         display: none;
     }
+    
+    #menu-mobile-button {
+        display: block;
+    }
+}
+
+/* --------------------------------------------------------------- */
+/* ------------------------- Mobile Menu ------------------------- */
+/* --------------------------------------------------------------- */
+
+#mobile-menu {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    z-index: 20;
+}
+
+#mobile-menu-close {
+    position: fixed;
+    top: 0;
+    right: 0;
+    font-size: 24px;
+    width: 24px;
+    text-align: center;
+    color: #f8f8f8;
+    margin: 42px;
+    cursor: pointer;
+}
+
+#mobile-menu-option-1, #mobile-menu-option-2, #mobile-menu-option-3, #mobile-menu-option-4, #mobile-menu-option-5 {
+    width: 100%;
+    height: 20%;
+    display: table;
+}
+
+#mobile-menu-option-1 {
+    background-color: #2b3030;
+}
+
+#mobile-menu-option-2 {
+    background-color: #242828;
+    
+}
+
+#mobile-menu-option-3 {
+    background-color: #1d2020;
+    
+}
+
+#mobile-menu-option-4 {
+    background-color: #161818;
+    
+}
+
+#mobile-menu-option-5 {
+    background-color: #0f1010;
+    height: calc(20% + 5px);
+    
+}
+
+.mobile-menu-text {
+    font-size: 36px;
+    color: #f8f8f8;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
 }
 
 /* --------------------------------------------------------------- */

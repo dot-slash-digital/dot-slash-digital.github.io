@@ -7,14 +7,25 @@ window.onload -- when images and such are loaded
 
 window.onload = function() {
     fullSizeHome();
+    hideMobileMenu();
 }
 
 $(window).resize(function() {
     fullSizeHome();
+    hideMobileMenu();
 });
 
+// Set home section of home page to the full height of the window
 function fullSizeHome() {
     $("#home-section").height($(window).height());
+}
+
+// Hide the mobile menu when the screen width is larger than 699px
+function hideMobileMenu() {
+    if ($(window).width() > 699) {
+        $("#mobile-menu").css("display", "none");
+        $("body").css("overflow", "auto");
+    }
 }
 
 // use requestAnimationFrame for smoothness (shimmed with setTimeout fallback)
@@ -45,3 +56,16 @@ window.requestAnimFrame = (function(){
         document.getElementById("min").style.webkitTransform = "rotate(" + (ms / 10000) + "deg)";
     } 
 })();
+
+
+// Button to open mobile menu
+$("#menu-mobile-button i").click(function() {
+    $("#mobile-menu").css("display", "block");
+    $("body").css("overflow", "hidden");
+});
+
+// Button to close mobile menu
+$("#mobile-menu-close").click(function() {
+    $("#mobile-menu").css("display", "none");
+    $("body").css("overflow", "auto");
+});
