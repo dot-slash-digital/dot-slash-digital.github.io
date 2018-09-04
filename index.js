@@ -47,16 +47,14 @@ window.requestAnimFrame = (function(){
     })();
 
     function draw(){
-        
         var now = moment().tz("America/Los_Angeles");
         var ms = (now.second() * 1000) + (now.minute() * 60000) + (now.hour() * 3600000);
 
-        document.getElementById("sec").style.webkitTransform = "rotate(" + (ms * 0.006) + "deg)";
-        document.getElementById("hour").style.webkitTransform = "rotate(" + ((ms / 120000) + (ms / 7200000)) + "deg)";
-        document.getElementById("min").style.webkitTransform = "rotate(" + (ms / 10000) + "deg)";
+        $("#sec").css("-webkit-transform", "rotate(" + (ms * 0.006) + "deg)");
+        $("#hour").css("-webkit-transform", "rotate(" + ((ms / 120000) + (ms / 7200000)) + "deg)");
+        $("#min").css("-webkit-transform", "rotate(" + (ms / 10000) + "deg)");
     } 
 })();
-
 
 // Button to open mobile menu
 $("#menu-mobile-button i").click(function() {
@@ -68,4 +66,14 @@ $("#menu-mobile-button i").click(function() {
 $("#mobile-menu-close").click(function() {
     $("#mobile-menu").css("display", "none");
     $("body").css("overflow", "auto");
+});
+
+$(".work-project-title").hover(function () {
+    console.log("On hover");
+    $(this).css("color", "#f1f1f1");
+    $("#work-projects-list").css("background-image", "url('work1.png')");
+}, function () {
+    console.log("Off hover");
+    $(this).css("color", "#212529");
+    $("#work-projects-list").css("background-image", "none");
 });

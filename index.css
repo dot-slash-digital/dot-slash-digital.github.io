@@ -1,17 +1,17 @@
 /*
 
 I.   Home Page
-  a. Home Section
-  b. Work Section
-  c. Services Section
-  d. Clients Section
-  e. Contact Section
+     a. Home Section
+     b. Work Section
+     c. Services Section
+     d. Clients Section
+     e. Contact Section
 II.  Work Page
 III. Services Page
 IV.  About Page
 V.   Contact Page
 VI.  Navbar
-  a. Mobile Menu
+     a. Mobile Menu
 VII. Footer
 
 */
@@ -28,7 +28,6 @@ body {
 /* --------------------------------------------------------------- */
 /* --------------------------------------------------------------- */
 /* --------------------------------------------------------------- */
-
 
 /* --------------------------------------------------------------- */
 /* ------------------------ Home Section ------------------------- */
@@ -447,7 +446,25 @@ body {
 /* --------------------------------------------------------------- */
 /* --------------------------------------------------------------- */
 
+#work-projects-list {
+    background-color: #f1f1f1;
+    padding: 120px 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 75% auto;
+    background-attachment: fixed;
+    transition: 0.5s all;
+}
 
+.work-project {
+    margin: 120px 12.5%;
+}
+
+.work-project-title {
+    font-size: 72px;
+    text-align: center;
+    cursor: pointer;
+}
 
 /* --------------------------------------------------------------- */
 /* --------------------------------------------------------------- */
