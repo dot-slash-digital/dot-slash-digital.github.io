@@ -68,12 +68,25 @@ $("#mobile-menu-close").click(function() {
     $("body").css("overflow", "auto");
 });
 
+// Transitions work page background between solid color and project image when hovering over project title
 $(".work-project-title").hover(function () {
-    console.log("On hover");
+    if ($(this).is("#project-peo") == true)
+        $("#work-projects-list-background").css("background-image", "url('work1.png')");
+    else if ($(this).is("#project-tm") == true)
+        $("#work-projects-list-background").css("background-image", "url('work2.png')");
+    else if ($(this).is("#project-ftb") == true)
+        $("#work-projects-list-background").css("background-image", "url('work1.png')");
+    else if ($(this).is("#project-offr") == true)
+        $("#work-projects-list-background").css("background-image", "url('work2.png')");
+    else {
+        $("#work-projects-list-background").css("background-image", "none");
+        $("#work-projects-list-background").css("background-color", "red");
+    }
+    
+    $(".work-project-title").css("color", "rgba(241, 241, 241, 0.25)"); // rgba(241, 241, 241, 0.25) = #f1f1f1 with opacity
     $(this).css("color", "#f1f1f1");
-    $("#work-projects-list").css("background-image", "url('work1.png')");
+    $("#work-projects-list").css("background-color", "transparent");
 }, function () {
-    console.log("Off hover");
-    $(this).css("color", "#212529");
-    $("#work-projects-list").css("background-image", "none");
+    $(".work-project-title").css("color", "#212529");
+    $("#work-projects-list").css("background-color", "#f1f1f1");
 });

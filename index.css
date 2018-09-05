@@ -446,14 +446,19 @@ body {
 /* --------------------------------------------------------------- */
 /* --------------------------------------------------------------- */
 
-#work-projects-list {
-    background-color: #f1f1f1;
-    padding: 120px 0;
+#work-projects-list-background {
+    background-color: #c3c3c3;
+    background-image: url("work1.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: 75% auto;
     background-attachment: fixed;
-    transition: 0.5s all;
+}
+
+#work-projects-list {
+    background-color: #f1f1f1;
+    padding: 120px 0;
+    transition: background 0.5s;
 }
 
 .work-project {
@@ -464,6 +469,12 @@ body {
     font-size: 72px;
     text-align: center;
     cursor: pointer;
+    
+    -webkit-transition: color 0.5s ease-out;
+    -moz-transition: color 0.5s ease-out;
+    -o-transition: color 0.5s ease-out;
+    -ms-transition: color 0.5s ease-out;
+    transition: color 0.5s ease-out;
 }
 
 /* --------------------------------------------------------------- */
