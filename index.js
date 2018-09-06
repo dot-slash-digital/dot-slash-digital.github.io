@@ -235,7 +235,7 @@ $(".projects-right-arrow").click(function() {
     }
 });
 
-$(function() {
+/* $(function() {
     if ($(".projects-active").width > $(".projects-gallery"))
         alert();
-})();
+})(); */
