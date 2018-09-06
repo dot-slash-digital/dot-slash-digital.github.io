@@ -1,18 +1,23 @@
 /*
 
-I.   Home Page
-     a. Home Section
-     b. Work Section
-     c. Services Section
-     d. Clients Section
-     e. Contact Section
-II.  Work Page
-III. Services Page
-IV.  About Page
-V.   Contact Page
-VI.  Navbar
-     a. Mobile Menu
-VII. Footer
+I.    Home Page
+    a. Home Section
+    b. Work Section
+    c. Services Section
+    d. Clients Section
+    e. Contact Section
+II.   Work Page
+III.  Projects Pages
+    a. Personal Eyes Opticians
+    b. Timeless Massage
+    c. Feel the Breeze
+    d. Offr
+IV.   Services Page
+V.    About Page
+VI.   Contact Page
+VII.  Navbar
+    a. Mobile Menu
+VIII. Footer
 
 */
 
@@ -476,6 +481,142 @@ body {
     -ms-transition: color 0.5s ease-out;
     transition: color 0.5s ease-out;
 }
+
+/* --------------------------------------------------------------- */
+/* --------------------------------------------------------------- */
+/* --------------------------------------------------------------- */
+/* ------------------------ Projects Pages ----------------------- */
+/* --------------------------------------------------------------- */
+/* --------------------------------------------------------------- */
+/* --------------------------------------------------------------- */
+
+.projects-nav {
+    background-color: #f8f8f8;
+}
+
+.projects-section {
+    width: 100%;
+    padding: 100px 24px;
+    transition: 0.5s all;
+    background-color: #f8f8f8;
+}
+
+/* width = 1200px or larger */
+@media (min-width: 1200px) {
+    .projects-section {
+        padding: 100px calc(24px + 112px);
+    }
+}
+
+.projects-gallery {
+    width: 100%;
+    background-color: #f1f1f1;
+}
+
+.projects-gallery img {
+    width: 100%;
+    position:absolute;
+    
+    -webkit-transition: opacity 1s ease-in-out;
+    -moz-transition: opacity 1s ease-in-out;
+    -o-transition: opacity 1s ease-in-out;
+    transition: opacity 1s ease-in-out;
+    
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity = 0);
+}
+
+.projects-active {
+    opacity: 1 !important;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)" !important;
+    filter: alpha(opacity = 1) !important;
+}
+
+.projects-gallery-scroller {
+    height: 25px;
+    margin: 5px 0;
+}
+
+.projects-left-arrow {
+    float: left;
+    margin-left: 15px;
+}
+
+.projects-right-arrow {
+    float: right;
+    margin-right: 15px;
+}
+
+.projects-left-arrow, .projects-right-arrow {
+    height: 100%;
+    line-height: 25px;
+    cursor: pointer;
+}
+
+.projects-numbers-list {
+    float: none;
+}
+
+.projects-numbers-list ul {
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+    display: table;
+}
+
+.projects-numbers-list ul li {
+    float: left;
+    margin: 0 7.5px;
+    cursor: pointer;
+}
+
+.projects-number-active {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.projects-information {
+    margin: 40px 0;
+}
+
+.projects-left-col {
+    width: 30%;
+    margin-right: 5%;
+    float: left;
+}
+
+.projects-right-col {
+    width: 65%;
+    float: right;
+}
+
+.projects-title {
+    font-size: 32px;
+    line-height: 0.9;
+    margin: 3px 0 10px 0;
+}
+
+.projects-website {
+    margin-top: 20px;
+}
+
+/* --------------------------------------------------------------- */
+/* ------------------- Personal Eyes Opticians ------------------- */
+/* --------------------------------------------------------------- */
+
+/* --------------------------------------------------------------- */
+/* ----------------------- Timeless Massage ---------------------- */
+/* --------------------------------------------------------------- */
+
+/* --------------------------------------------------------------- */
+/* ------------------------ Feel the Breeze ---------------------- */
+/* --------------------------------------------------------------- */
+
+/* --------------------------------------------------------------- */
+/* ----------------------------- Offr ---------------------------- */
+/* --------------------------------------------------------------- */
+
+
 
 /* --------------------------------------------------------------- */
 /* --------------------------------------------------------------- */
