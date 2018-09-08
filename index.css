@@ -626,15 +626,21 @@ body {
     padding: 75px 0;
 }
 
-.services-left-col {
-    width: 50%;
+.services-left {
     margin-right: 5%;
     float: left;
 }
 
-.services-right-col {
-    width: 45%;
+.services-right {
     float: right;
+}
+
+.services-text-col {
+    width: 50%;
+}
+
+.services-image-col {
+    width: 45%;
 }
 
 .services-title {
@@ -661,7 +667,7 @@ body {
     font-size: 12px;
 }
 
-.services-left-col img, .services-right-col img {
+.services-image-col img {
     width: 100%;
 }
 
