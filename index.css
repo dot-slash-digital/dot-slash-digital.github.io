@@ -468,18 +468,24 @@ body {
 
 .work-project {
     margin: 120px 12.5%;
+    text-align: center;
 }
 
 .work-project-title {
     font-size: 72px;
-    text-align: center;
     cursor: pointer;
+    text-decoration: none;
+    color: #212529;
     
     -webkit-transition: color 0.5s ease-out;
     -moz-transition: color 0.5s ease-out;
     -o-transition: color 0.5s ease-out;
     -ms-transition: color 0.5s ease-out;
     transition: color 0.5s ease-out;
+}
+
+.work-project-title:hover {
+    color: #212529;
 }
 
 /* --------------------------------------------------------------- */
