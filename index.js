@@ -113,6 +113,38 @@ function getProjectName(t) {
         return "";
 }
 
+function aboutPhotoHover(t, hover) {
+    var team_member = "";
+    if (t.is($("#about-matt > .team-member-selector")) || t.is($("#about-matt > .about-bio > .about-bio-social")) == true)
+        team_member = "matt";
+    else if (t.is($("#about-connor > .team-member-selector")) || t.is($("#about-connor > .about-bio > .about-bio-social")) == true)
+        team_member = "connor";
+    else if (t.is($("#about-nick > .team-member-selector")) || t.is($("#about-nick > .about-bio > .about-bio-social")) == true)
+        team_member = "nick";
+    
+    if (hover == "on") {
+        $("#about-" + team_member + " .about-bio").css("background-color", "rgba(255, 0, 0, 0.8)");
+    
+        $("#about-" + team_member + " .about-bio-name").css("margin-bottom", "30px");
+        $("#about-" + team_member + " .about-bio-title").css("opacity", "1");
+        $("#about-" + team_member + " .about-bio-social").css("opacity", "1");
+        $("#about-" + team_member + " .about-bio-social a").css("cursor", "pointer");
+
+        $("#about-" + team_member + " img").css("-webkit-filter", "contrast(100%) grayscale(0%)");
+        $("#about-" + team_member + " img").css("filter", "contrast(100%) grayscale(0%)");
+    } else if (hover == "off") {
+        $("#about-" + team_member + " .about-bio").css("background-color", "transparent");
+    
+        $("#about-" + team_member + " .about-bio-name").css("margin-bottom", "0");
+        $("#about-" + team_member + " .about-bio-title").css("opacity", "0");
+        $("#about-" + team_member + " .about-bio-social").css("opacity", "0");
+        $("#about-" + team_member + " .about-bio-social a").css("cursor", "none");
+
+        $("#about-" + team_member + " img").css("-webkit-filter", "contrast(75%) grayscale(100%)");
+        $("#about-" + team_member + " img").css("filter", "contrast(75%) grayscale(100%)");
+    }
+}
+
 // use requestAnimationFrame for smoothness (shimmed with setTimeout fallback)
 window.requestAnimFrame = (function(){
   return  window.requestAnimationFrame       ||
@@ -154,7 +186,7 @@ $("#mobile-menu-close").click(function() {
 });
 
 // Transitions work page background between solid color and project image when hovering over project title
-$(".work-project-title").hover(function () {
+$(".work-project-title").hover(function() {
     if ($(this).is("#project-peo") == true)
         $("#work-projects-list-background").css("background-image", "url('work1.png')");
     else if ($(this).is("#project-tm") == true)
@@ -171,7 +203,7 @@ $(".work-project-title").hover(function () {
     $(".work-project-title").css("color", "rgba(241, 241, 241, 0.25)"); // rgba(241, 241, 241, 0.25) = #f1f1f1 with opacity
     $(this).css("color", "#f1f1f1");
     $("#work-projects-list").css("background-color", "transparent");
-}, function () {
+}, function() {
     $(".work-project-title").css("color", "#212529");
     $("#work-projects-list").css("background-color", "#f1f1f1");
 });
@@ -235,7 +267,14 @@ $(".projects-right-arrow").click(function() {
     }
 });
 
-/* $(function() {
-    if ($(".projects-active").width > $(".projects-gallery"))
-        alert();
-})(); */
+$(".team-member-selector").hover(function() {
+    aboutPhotoHover($(this), "on");
+}, function() {
+    aboutPhotoHover($(this), "off");
+});
+
+$(".about-bio-social").hover(function() {
+    aboutPhotoHover($(this), "on");
+}, function() {
+    aboutPhotoHover($(this), "off");
+});

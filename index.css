@@ -8,10 +8,6 @@ I.    Home Page
     e. Contact Section
 II.   Work Page
 III.  Projects Pages
-    a. Personal Eyes Opticians
-    b. Timeless Massage
-    c. Feel the Breeze
-    d. Offr
 IV.   Services Page
 V.    About Page
 VI.   Contact Page
@@ -685,7 +681,137 @@ body {
 /* --------------------------------------------------------------- */
 /* --------------------------------------------------------------- */
 
+#about-section {
+    width: 100%;
+    padding: 100px 24px;
+    transition: 0.5s all;
+    background-color: #f1f1f1;
+}
 
+/* width = 1200px or larger */
+@media (min-width: 1200px) {
+    #about-section {
+        padding: 100px calc(24px + 112px);
+    }
+}
+
+#about-who, #about-team, #about-join {
+    padding: 100px 0;
+}
+
+#about-who-title {
+    font-size: 48px;
+    line-height: 1;
+    float: left;
+    width: 35%;
+    margin-right: 5%;
+}
+
+#about-who-description {
+    float: right;
+    width: 60%;
+}
+
+#about-team-title {
+    font-size: 48px;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+#about-team-members {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.team-member {
+    position: relative;
+    width: calc(100% / 3);
+    margin: 0 2%;
+    text-align: center;
+}
+
+.team-member img {
+    width: 100%;
+    -webkit-filter: contrast(75%) grayscale(100%);
+    filter: contrast(75%) grayscale(100%);
+    transition: 0.5s all;
+}
+
+.about-bio {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    padding: 5%;
+    transition: 0.5s all;
+}
+
+.about-bio-name {
+    width: 100%;
+    font-size: 36px;
+    line-height: 1;
+    text-align: left;
+    color: white;
+    
+    transition: 0.5s all;
+}
+
+.about-bio-title {
+    font-size: 14px;
+    line-height: 1;
+    color: white;
+    
+    position: absolute;
+    left: 5%;
+    bottom: 15%;
+    
+    opacity: 0;
+    transition: 0.5s all;
+}
+
+.about-bio-social {
+    font-size: 20px;
+    line-height: 1;
+    color: white;
+    z-index: 50;
+    
+    position: absolute;
+    right: 5%;
+    bottom: 12.5%;
+    
+    opacity: 0;
+    transition: 0.5s all;
+}
+
+.about-bio-social a {
+    padding: 0 2.5px;
+}
+
+.team-member-selector {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    bottom: 0;
+    cursor: pointer;
+}
+
+#about-join {
+    text-align: center;
+}
+
+#about-join-tagline {
+    margin-bottom: 25px;
+}
+
+#about-join-button {
+    background-color: black;
+    color: white !important;
+    padding: 17px 30px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 5px 15px 0 rgba(0,0,0,0.15);
+    box-shadow: 0 5px 15px 0 rgba(0,0,0,0.15);
+}
 
 /* --------------------------------------------------------------- */
 /* --------------------------------------------------------------- */
