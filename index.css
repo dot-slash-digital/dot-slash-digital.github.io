@@ -821,7 +821,83 @@ body {
 /* --------------------------------------------------------------- */
 /* --------------------------------------------------------------- */
 
+#contact-body {
+    width: 100%;
+    margin: 0;
+    background-color: #f1f1f1;
+}
 
+#contact-form {
+    width: 700px;
+    margin: 0 auto;
+    padding: 240px 0;
+}
+
+.contact-form-text {
+    font-size: 34px;
+    text-align: left;
+}
+
+.contact-form-checkbox {
+    font-size: 24px;
+    margin: 15px;
+    display: block;
+}
+
+.contact-form-checkbox div svg path {
+    fill: black;
+    color: black;
+}
+
+.contact-form-checkbox div svg {
+    padding: 2px;
+}
+
+.contact-form-checkbox div label div {
+    position: absolute;
+    bottom: 2px;
+}
+
+#contact-form > div:nth-child(5) {
+    margin-top: 7.5px
+}
+
+#contact-form > div:nth-child(8) {
+    margin-bottom: 7.5px;
+}
+
+.contact-form-text input, .contact-form-text textarea {
+    background-color: transparent;
+    line-height: 1;
+    border: 0;
+    border-bottom: 3px #757575 solid;
+    transition: 0.5s all;
+}
+
+.contact-form-text textarea {
+    width: 100%;
+    height: 200px;
+    resize: none;
+}
+
+.contact-form-text input:focus, .contact-form-text textarea:focus {
+    outline: none;
+    border-bottom-color: red;
+}
+
+#contact-outer-button {
+    padding-top: 50px;
+    text-align: center;
+}
+
+#contact-form-button {
+    background-color: black;
+    color: white !important;
+    padding: 17px 30px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 5px 15px 0 rgba(0,0,0,0.15);
+    box-shadow: 0 5px 15px 0 rgba(0,0,0,0.15);
+}
 
 /* --------------------------------------------------------------- */
 /* --------------------------------------------------------------- */
