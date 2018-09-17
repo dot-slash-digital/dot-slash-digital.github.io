@@ -166,15 +166,18 @@ body {
 .work-title {
     font-size: 48px;
     line-height: 0.9;
+    text-align: left;
 }
 
 .work-summary {
     font-size: 24px;
     line-height: 0.9;
     margin: 10px 0 50px 0;
+    text-align: left;
 }
 
 .work-button {
+    float: left;
     background-color: black;
     color: white !important;
     padding: 17px 30px;
@@ -212,14 +215,6 @@ body {
     float: right;
 }
 
-#work-1-text .work-title, #work-1-text .work-summary {
-    text-align: right;
-}
-
-#work-1-text .work-button {
-    float: right;
-}
-
 /* -------------------------- Project 2 -------------------------- */
 
 #work-2 {
@@ -249,14 +244,6 @@ body {
     float: left;
 }
 
-#work-2-text .work-title, #work-2-text .work-summary {
-    text-align: left;
-}
-
-#work-2-text .work-button {
-    float: left;
-}
-
 /* ---------------------- View All Projects ---------------------- */
 
 #work-view {
@@ -269,6 +256,7 @@ body {
 #work-view .work-button {
     background-color: white !important;
     color: black !important;
+    float: none;
 }
 
 /* --------------------------------------------------------------- */
