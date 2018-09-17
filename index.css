@@ -178,12 +178,25 @@ body {
 
 .work-button {
     float: left;
-    background-color: black;
+    background-color: #1d1f1f;
     color: white !important;
     padding: 17px 30px;
     border-radius: 5px;
     -webkit-box-shadow: 0 5px 15px 0 rgba(0,0,0,0.15);
     box-shadow: 0 5px 15px 0 rgba(0,0,0,0.15);
+    transition: 0.5s all;
+}
+
+.work-button:hover {
+    text-decoration: none;
+    background-color: #161717;
+    color: #f0f0f0 !important;
+    -webkit-box-shadow: 0 5px 25px 0 rgba(0,0,0,0.25);
+    box-shadow: 0 5px 25px 0 rgba(0,0,0,0.25);
+}
+
+.work-button:active {
+    background-color: #0f1010;
 }
 
 /* -------------------------- Project 1 -------------------------- */
@@ -257,6 +270,14 @@ body {
     background-color: white !important;
     color: black !important;
     float: none;
+}
+
+#work-view .work-button:hover {
+    background-color: #f7f7f7 !important;
+}
+
+#work-view .work-button:active {
+    background-color: #f0f0f0 !important;
 }
 
 /* --------------------------------------------------------------- */
@@ -336,12 +357,26 @@ body {
 }
 
 #services-view a {
+    text-decoration: none;
     background-color: white;
     color: black !important;
     padding: 17px 30px;
     border-radius: 5px;
     -webkit-box-shadow: 0 5px 15px 0 rgba(0,0,0,0.15);
     box-shadow: 0 5px 15px 0 rgba(0,0,0,0.15);
+    transition: 0.5s all;
+}
+
+#services-view a:hover {
+    background-color: #f7f7f7;
+    color: #080808 !important;
+    -webkit-box-shadow: 0 5px 25px 0 rgba(0,0,0,0.25);
+    box-shadow: 0 5px 25px 0 rgba(0,0,0,0.25);
+}
+
+#services-view a:active {
+    background-color: #f0f0f0;
+    color: #1d1f1f !important;
 }
 
 
@@ -793,12 +828,25 @@ body {
 }
 
 #about-join-button {
-    background-color: black;
+    background-color: #1d1f1f;
     color: white !important;
     padding: 17px 30px;
     border-radius: 5px;
     -webkit-box-shadow: 0 5px 15px 0 rgba(0,0,0,0.15);
     box-shadow: 0 5px 15px 0 rgba(0,0,0,0.15);
+    transition: 0.5s all;
+}
+
+#about-join-button:hover {
+    text-decoration: none;
+    background-color: #161717;
+    color: #f0f0f0 !important;
+    -webkit-box-shadow: 0 5px 25px 0 rgba(0,0,0,0.25);
+    box-shadow: 0 5px 25px 0 rgba(0,0,0,0.25);
+}
+
+#about-join-button:active {
+    background-color: #0f1010;
 }
 
 /* --------------------------------------------------------------- */
@@ -879,12 +927,25 @@ body {
 }
 
 #contact-form-button {
-    background-color: black;
+    background-color: #1d1f1f;
     color: white !important;
     padding: 17px 30px;
     border-radius: 5px;
     -webkit-box-shadow: 0 5px 15px 0 rgba(0,0,0,0.15);
     box-shadow: 0 5px 15px 0 rgba(0,0,0,0.15);
+    transition: 0.5s all;
+}
+
+#contact-form-button:hover {
+    text-decoration: none;
+    background-color: #161717;
+    color: #f0f0f0 !important;
+    -webkit-box-shadow: 0 5px 25px 0 rgba(0,0,0,0.25);
+    box-shadow: 0 5px 25px 0 rgba(0,0,0,0.25);
+}
+
+#contact-form-button:active {
+    background-color: #0f1010;
 }
 
 /* --------------------------------------------------------------- */
