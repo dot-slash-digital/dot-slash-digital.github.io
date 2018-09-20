@@ -91,6 +91,13 @@ body {
     bottom: 0;
 }
 
+/* width = 500px or smaller */
+@media (max-width: 500px) {
+    #info-section {
+        display: none;
+    }
+}
+
 /* width = 1200px or larger */
 @media (min-width: 1200px) {
     #info-section {
@@ -179,13 +186,13 @@ body {
 
 .work-title {
     font-size: 48px;
-    line-height: 0.9;
+    line-height: 1;
     text-align: left;
 }
 
 .work-summary {
     font-size: 24px;
-    line-height: 0.9;
+    line-height: 1;
     margin: 10px 0 50px 0;
     text-align: left;
 }
@@ -294,6 +301,41 @@ body {
     background-color: #f0f0f0 !important;
 }
 
+/* Width = 870px or less */
+@media (max-width: 870px) {
+    #work-1-mockup, #work-2-mockup, .work-title, .work-summary {
+        width: 90%;
+        margin: 0 5%;
+    }
+    
+    #work-1-text, #work-2-text {
+        width: 100%;
+        padding: 30px 0 0 0;
+    }
+    
+    #work-1-text, #work-2-text, .work-title {
+        text-align: center;
+    }
+    
+    .work-summary {
+        margin: 5px 0 40px 0;
+    }
+    
+    .work-button {
+        float: none;
+    }
+}
+
+@media (max-width: 590px) {
+    .work-title {
+        font-size: 36px;
+    }
+    
+    .work-summary {
+        font-size: 18px;
+    }
+}
+
 /* --------------------------------------------------------------- */
 /* ---------------------- Services Section ----------------------- */
 /* --------------------------------------------------------------- */
@@ -323,12 +365,12 @@ body {
 
 #services-title {
     font-size: 72px;
-    line-height: 0.9;
+    line-height: 1;
 }
 
 #services-summary {
     font-size: 24px;
-    line-height: 0.9;
+    line-height: 1;
     margin: 10px 0 50px 0;
 }
 
@@ -364,7 +406,6 @@ body {
 /* ---------------------- View All Services ---------------------- */
 
 #services-view {
-    margin: 60px 0 30px 0;
     padding: 15px 0;
     text-align: center;
     clear: both;
@@ -391,6 +432,54 @@ body {
 #services-view a:active {
     background-color: #f0f0f0;
     color: #1d1f1f !important;
+}
+
+/* width = 1080px or less */
+@media (max-width: 1080px) {
+    #services-text {
+        width: 90%;
+        margin: 0 5%;
+        float: none;
+    }
+    
+    #services-title {
+        text-align: center;
+    }
+    
+    #services-summary {
+        margin: 10px 0;
+    }
+    
+    #services-list {
+        width: 90%;
+        margin: 0 5%;
+    }
+    
+    #services-view {
+        padding: 45px 0;
+    }
+}
+
+@media (max-width: 740px) {
+    .services-col {
+        width: 50%;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+    
+    .services-col ul li {
+        text-align: center;
+    }
+}
+
+@media (max-width: 350px) {
+    .services-col {
+        width: 100%;
+    }
+    
+    .services-col ul {
+        display: none;
+    }
 }
 
 
@@ -422,12 +511,13 @@ body {
 
 #clients-title {
     font-size: 72px;
-    line-height: 0.9;
+    line-height: 1;
 }
 
 #clients-summary {
     font-size: 24px;
-    line-height: 0.9;
+    line-height: 1;
+    margin-top: 10px;
 }
 
 /* ----------------------- Clients List ------------------------- */
@@ -457,6 +547,49 @@ body {
     filter: contrast(100%) grayscale(0%);
 }
 
+/* width = 750px or smaller */
+@media (max-width: 750px) {
+    #clients-text {
+        width: 90%;
+        margin: 0 5%;
+        float: none;
+    }
+    
+    #clients-title {
+        text-align: center;
+    }
+    
+    #clients-list {
+        width: 100%;
+    }
+}
+
+@media (max-width: 428px) {
+    .clients-logo {
+        width: 125px;
+        height: 125px;
+        margin: 10px;
+    }
+}
+
+@media (max-width: 400px) {
+    #clients-title {
+        font-size: 68px;
+    }
+    
+    #clients-summary {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 375px) {
+    .clients-logo {
+        width: 100px;
+        height: 100px;
+        margin: 0;
+    }
+}
+
 /* --------------------------------------------------------------- */
 /* ----------------------- Contact Section ----------------------- */
 /* --------------------------------------------------------------- */
@@ -478,6 +611,7 @@ body {
 #contact-text {
     font-size: 72px;
     text-align: center;
+    line-height: 1;
 }
 
 /* --------------------------------------------------------------- */
