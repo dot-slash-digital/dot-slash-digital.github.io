@@ -757,7 +757,7 @@ body {
 }
 
 .projects-number-active {
-    background-color: rgba(0, 0, 0, 0.3);
+    font-weight: bold;
 }
 
 .projects-information {
@@ -783,6 +783,22 @@ body {
 
 .projects-website {
     margin-top: 20px;
+}
+
+/* width = 750px or less */
+@media (max-width: 750px) {
+    .projects-left-col {
+        float: none;
+        width: 90%;
+        margin: 0 5% 25px 5%;
+        text-align: center;
+    }
+    
+    .projects-right-col {
+        float: none;
+        width: 90%;
+        margin: 0 5%;
+    }
 }
 
 /* --------------------------------------------------------------- */
