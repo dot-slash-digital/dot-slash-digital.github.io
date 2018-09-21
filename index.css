@@ -14,6 +14,7 @@ VI.   Contact Page
 VII.  Navbar
     a. Mobile Menu
 VIII. Footer
+IX.   Links
 
 */
 
@@ -968,7 +969,6 @@ body {
 #about-who-description {
     float: right;
     width: 60%;
-    line-height: 1;
 }
 
 #about-team-title {
@@ -1566,20 +1566,20 @@ nav ul li {
 footer {
     background-color: #e5e5e5;
     width: 100%;
-    padding: 60px 24px;
+    padding: 60px 24px 100px 24px;
     transition: 0.5s all;
 }
 
 /* width = 1200px or larger */
 @media (min-width: 1200px) {
     footer {
-        padding: 60px calc(24px + 112px);
+        padding: 60px calc(24px + 112px) 100px calc(24px + 112px);
     }
 }
 
 #footer-logo {
-    width: 200px;
-    float: left;
+    height: 0;
+    text-align: center;
 }
 
 #footer-logo img {
@@ -1611,14 +1611,43 @@ footer {
 
 #footer-social {
     height: 20px;
-    margin-top: 5px;
+    width: 200px;
+    margin: 0 auto;
 }
 
 .footer-social-link {
     float: left;
-    width: calc(100% / 7);
+    width: 40px;
     height: 20px;
     font-size: 18px;
+}
+
+/* width = 750px or less */
+@media (max-width: 750px) {
+    footer {
+        padding: 60px 24px;
+    }
+    
+    #footer-logo {
+        float: none;
+    }
+    
+    #footer-logo img {
+        height: 100px;
+        width: 100px;
+    }
+    
+    #footer-left {
+        float: none;
+        width: 100%;
+        margin: 40px 0 0 0;
+    }
+    
+    #footer-right {
+        float: none;
+        width: 100%;
+        margin: 10px 0 0 0;
+    }
 }
 
 /* --------------------------------------------------------------- */
