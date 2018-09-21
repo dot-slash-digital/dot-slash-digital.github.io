@@ -647,6 +647,7 @@ body {
     cursor: pointer;
     text-decoration: none;
     color: #212529;
+    line-height: 1;
     
     -webkit-transition: color 0.5s ease-out;
     -moz-transition: color 0.5s ease-out;
@@ -657,6 +658,13 @@ body {
 
 .work-project-title:hover {
     color: #212529;
+}
+
+/* width = 565px or less */
+@media (max-width: 565px) {
+    .work-project-title {
+        font-size: 54px;
+    }
 }
 
 /* --------------------------------------------------------------- */
@@ -885,6 +893,7 @@ body {
 #about-who-description {
     float: right;
     width: 60%;
+    line-height: 1;
 }
 
 #about-team-title {
@@ -895,16 +904,14 @@ body {
 
 #about-team-members {
     width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
 }
 
 .team-member {
     position: relative;
-    width: calc(100% / 3);
-    margin: 0 2%;
+    width: 29.33%;
+    margin: 2%;
     text-align: center;
+    float: left;
 }
 
 .team-member img {
@@ -961,6 +968,12 @@ body {
 
 .about-bio-social a {
     padding: 0 2.5px;
+    color: #fff;
+    transition: 0.5s all;
+}
+
+.about-bio-social a:hover {
+    color: #e5e5e5;
 }
 
 .team-member-selector {
@@ -999,6 +1012,35 @@ body {
 
 #about-join-button:active {
     background-color: #0f1010;
+}
+
+/* width = 900px or less */
+@media (max-width: 900px) {
+    .team-member {
+        width: 46%;
+    }
+}
+
+@media (max-width: 600px) {
+    .team-member {
+        width: 75%;
+        float: none;
+        margin: 4% auto;
+    }
+}
+
+/* width = 580px or less */
+@media (max-width: 580px) {
+    #about-who-title, #about-who-description {
+        float: none;
+        width: 90%;
+        margin: 0 5%;
+        text-align: center;
+    }
+    
+    #about-who-title {
+        margin-bottom: 10px;
+    }
 }
 
 /* --------------------------------------------------------------- */
