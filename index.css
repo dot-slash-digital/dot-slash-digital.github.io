@@ -198,10 +198,10 @@ body {
     text-align: left;
 }
 
-.work-button {
-    float: left;
+.button {
+    float: none;
     background-color: #1d1f1f;
-    color: white !important;
+    color: #f1f1f1 !important;
     padding: 17px 30px;
     border-radius: 5px;
     -webkit-box-shadow: 0 5px 15px 0 rgba(0,0,0,0.15);
@@ -209,16 +209,17 @@ body {
     transition: 0.5s all;
 }
 
-.work-button:hover {
+.button:hover {
     text-decoration: none;
-    background-color: #161717;
-    color: #f0f0f0 !important;
+    background-color: #494f4f;
     -webkit-box-shadow: 0 5px 25px 0 rgba(0,0,0,0.25);
     box-shadow: 0 5px 25px 0 rgba(0,0,0,0.25);
+    cursor: pointer;
 }
 
-.work-button:active {
-    background-color: #0f1010;
+.button:active {
+    background-color: #f1f1f1;
+    color: #1d1f1f !important;
 }
 
 /* -------------------------- Project 1 -------------------------- */
@@ -283,23 +284,8 @@ body {
 
 #work-view {
     margin: 60px 0;
-    padding: 15px 0;
     text-align: center;
     clear: both;
-}
-
-#work-view .work-button {
-    background-color: white !important;
-    color: black !important;
-    float: none;
-}
-
-#work-view .work-button:hover {
-    background-color: #f7f7f7 !important;
-}
-
-#work-view .work-button:active {
-    background-color: #f0f0f0 !important;
 }
 
 /* Width = 870px or less */
@@ -410,29 +396,6 @@ body {
     padding: 15px 0;
     text-align: center;
     clear: both;
-}
-
-#services-view a {
-    text-decoration: none;
-    background-color: white;
-    color: black !important;
-    padding: 17px 30px;
-    border-radius: 5px;
-    -webkit-box-shadow: 0 5px 15px 0 rgba(0,0,0,0.15);
-    box-shadow: 0 5px 15px 0 rgba(0,0,0,0.15);
-    transition: 0.5s all;
-}
-
-#services-view a:hover {
-    background-color: #f7f7f7;
-    color: #080808 !important;
-    -webkit-box-shadow: 0 5px 25px 0 rgba(0,0,0,0.25);
-    box-shadow: 0 5px 25px 0 rgba(0,0,0,0.25);
-}
-
-#services-view a:active {
-    background-color: #f0f0f0;
-    color: #1d1f1f !important;
 }
 
 /* width = 1080px or less */
@@ -1067,28 +1030,6 @@ body {
     margin-bottom: 25px;
 }
 
-#about-join-button {
-    background-color: #1d1f1f;
-    color: white !important;
-    padding: 17px 30px;
-    border-radius: 5px;
-    -webkit-box-shadow: 0 5px 15px 0 rgba(0,0,0,0.15);
-    box-shadow: 0 5px 15px 0 rgba(0,0,0,0.15);
-    transition: 0.5s all;
-}
-
-#about-join-button:hover {
-    text-decoration: none;
-    background-color: #161717;
-    color: #f0f0f0 !important;
-    -webkit-box-shadow: 0 5px 25px 0 rgba(0,0,0,0.25);
-    box-shadow: 0 5px 25px 0 rgba(0,0,0,0.25);
-}
-
-#about-join-button:active {
-    background-color: #0f1010;
-}
-
 /* width = 900px or less */
 @media (max-width: 900px) {
     .team-member {
@@ -1207,29 +1148,6 @@ body {
 #contact-outer-button {
     padding-top: 50px;
     text-align: center;
-}
-
-#contact-form-button {
-    background-color: #1d1f1f;
-    color: white !important;
-    padding: 17px 30px;
-    border-radius: 5px;
-    -webkit-box-shadow: 0 5px 15px 0 rgba(0,0,0,0.15);
-    box-shadow: 0 5px 15px 0 rgba(0,0,0,0.15);
-    transition: 0.5s all;
-}
-
-#contact-form-button:hover {
-    cursor: pointer;
-    text-decoration: none;
-    background-color: #161717;
-    color: #f0f0f0 !important;
-    -webkit-box-shadow: 0 5px 25px 0 rgba(0,0,0,0.25);
-    box-shadow: 0 5px 25px 0 rgba(0,0,0,0.25);
-}
-
-#contact-form-button:active {
-    background-color: #0f1010;
 }
 
 ::placeholder {
