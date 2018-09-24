@@ -345,3 +345,53 @@ $(".about-bio-social").hover(function() {
 }, function() {
     aboutPhotoHover($(this), "off");
 });
+
+// Submit contact form and error checking
+$("#contact-form").submit(function() {
+    if ($("#contact-name-input").val() == "") {
+        $("#contact-name-input").removeClass("form-valid");
+        $("#contact-name-input").addClass("form-invalid");
+    } else {
+        $("#contact-name-input").removeClass("form-invalid");
+        $("#contact-name-input").addClass("form-valid");
+    }
+    
+    if ($("#contact-company-input").val() == "") {
+        $("#contact-company-input").removeClass("form-valid");
+        $("#contact-company-input").addClass("form-invalid");
+    } else {
+        $("#contact-company-input").removeClass("form-invalid");
+        $("#contact-company-input").addClass("form-valid");
+    }
+    
+    if ($("#contact-email-input").val() == "") {
+        $("#contact-email-input").removeClass("form-valid");
+        $("#contact-email-input").addClass("form-invalid");
+    } else {
+        $("#contact-email-input").removeClass("form-invalid");
+        $("#contact-email-input").addClass("form-valid");
+    }
+    
+    if ($("#contact-description-input").val() == "") {
+        $("#contact-description-input").removeClass("form-valid");
+        $("#contact-description-input").addClass("form-invalid");
+    } else {
+        $("#contact-description-input").removeClass("form-invalid");
+        $("#contact-description-input").addClass("form-valid");
+    }
+    
+    if ($("#contact-name-input").val() != "" && $("#contact-company-input").val() != "" && $("#contact-email-input").val() != "" && $("#contact-description-input").val() != "")
+        return true;
+    else
+        return false;
+});
+
+// Remove form validity classes if a user edits the input
+$("input").on('input', function() {
+    $(this).removeClass("form-valid");
+    $(this).removeClass("form-invalid");
+});
+$("textarea").on('input', function() {
+    $(this).removeClass("form-valid");
+    $(this).removeClass("form-invalid");
+});
