@@ -288,8 +288,15 @@ body {
     clear: both;
 }
 
-/* Width = 870px or less */
-@media (max-width: 870px) {
+/* width = between 1095px and 871px */
+@media (min-width: 871px) and (max-width: 1095px) {
+    #work-1-text, #work-2-text {
+        padding-top: 0;
+    }
+}
+
+/* width = between 850px and 591px */
+@media (min-width: 591px) and (max-width: 870px) {
     #work-1-mockup, #work-2-mockup, .work-title, .work-summary {
         width: 90%;
         margin: 0 5%;
@@ -305,7 +312,7 @@ body {
     }
     
     .work-summary {
-        margin: 5px 0 40px 0;
+        margin: 5px auto 40px auto;
     }
     
     .work-button {
@@ -313,6 +320,7 @@ body {
     }
 }
 
+/* width = 590px or less */
 @media (max-width: 590px) {
     .work-title {
         font-size: 36px;
