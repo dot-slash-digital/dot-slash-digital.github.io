@@ -425,6 +425,11 @@ body {
     #services-list {
         width: 90%;
         margin: 0 5%;
+        text-align: center;
+    }
+    
+    .services-col ul li {
+        text-align: center;
     }
     
     #services-view {
@@ -432,18 +437,15 @@ body {
     }
 }
 
+/* width = 740px or less */
 @media (max-width: 740px) {
     .services-col {
         width: 50%;
         margin-bottom: 15px;
-        text-align: center;
-    }
-    
-    .services-col ul li {
-        text-align: center;
     }
 }
 
+/* width = 350px or less */
 @media (max-width: 350px) {
     .services-col {
         width: 100%;
