@@ -254,6 +254,8 @@ $("#mobile-menu-close").click(function() {
 
 // Transitions work page background between solid color and project image when hovering over project title
 $(".work-project-title").hover(function() {
+    $(".work-project-title").css("transition", "0.5s all");
+    
     if ($(this).is("#project-peo") == true)
         $("#work-projects-list-background").css("background-image", "url('work1.png')");
     else if ($(this).is("#project-tm") == true)

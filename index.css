@@ -39,6 +39,26 @@ body {
     font-family: 'Lato', sans-serif;
 }
 
+.icon-button-dark {
+    color: #1d1f1f !important;
+    transition: 0.5s all;
+}
+
+.icon-button-dark:hover {
+    color: #777777 !important;
+    text-decoration: none;
+}
+
+.icon-button-light {
+    color: #f1f1f1 !important;
+    transition: 0.5s all;
+}
+
+.icon-button-light:hover {
+    color: #cccccc !important;
+    text-decoration: none;
+}
+
 /* --------------------------------------------------------------- */
 /* ------------------------ Home Section ------------------------- */
 /* --------------------------------------------------------------- */
@@ -296,15 +316,15 @@ body {
     clear: both;
 }
 
-/* width = between 1095px and 871px */
-@media (min-width: 871px) and (max-width: 1095px) {
+/* width = 1095px or less */
+@media (max-width: 1095px) {
     #work-1-text, #work-2-text {
         padding-top: 0;
     }
 }
 
-/* width = between 850px and 591px */
-@media (min-width: 591px) and (max-width: 870px) {
+/* width = 870px or less */
+@media (max-width: 870px) {
     #work-1-mockup, #work-2-mockup, .work-title, .work-summary {
         width: 90%;
         margin: 0 5%;
@@ -320,7 +340,9 @@ body {
     }
     
     .work-summary {
+        width: 65%;
         margin: 5px auto 40px auto;
+        text-align: center;
     }
     
     .work-button {
@@ -631,11 +653,7 @@ body {
     color: #212529;
     line-height: 1;
     
-    -webkit-transition: color 0.5s ease-out;
-    -moz-transition: color 0.5s ease-out;
-    -o-transition: color 0.5s ease-out;
-    -ms-transition: color 0.5s ease-out;
-    transition: color 0.5s ease-out;
+    transition: 5s all;
 }
 
 .work-project-title:hover {
@@ -1482,7 +1500,6 @@ nav ul li {
     font-size: 24px;
     width: 24px;
     text-align: center;
-    color: #f8f8f8;
     margin: 42px;
     cursor: pointer;
 }
