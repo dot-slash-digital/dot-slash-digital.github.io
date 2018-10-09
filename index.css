@@ -1100,20 +1100,20 @@ body {
 }
 
 .contact-form-text {
-    font-size: 34px;
+    font-size: 32px;
     text-align: left;
 }
 
 #contact-name-input {
-    width: 455px;
+    width: 472px;
 }
 
 #contact-company-input {
-    width: 488px;
+    width: 493px;
 }
 
 #contact-email-input {
-    width: 391px;
+    width: 410px;
 }
 
 .contact-form-checkbox {
