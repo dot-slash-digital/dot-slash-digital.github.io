@@ -74,17 +74,17 @@ $(document).ready(function() {
 
 var projects = [
                  [ // Personal Eyes Opticians
-                   [ "#projects-peo-1", "#projects-peo-2", "#projects-peo-3", "#projects-peo-4" ],
-                   [ "#projects-peo-1-link", "#projects-peo-2-link", "#projects-peo-3-link", "#projects-peo-4-link" ]
+                   [ "#projects-peo-1", "#projects-peo-2", "#projects-peo-3" ],
+                   [ "#projects-peo-1-link", "#projects-peo-2-link", "#projects-peo-3-link" ]
                  ], [ // Timeless Massage
-                   [ "#projects-tm-1", "#projects-tm-2", "#projects-tm-3", "#projects-tm-4" ],
-                   [ "#projects-tm-1-link", "#projects-tm-2-link", "#projects-tm-3-link", "#projects-tm-4-link" ]
+                   [ "#projects-tm-1", "#projects-tm-2", "#projects-tm-3" ],
+                   [ "#projects-tm-1-link", "#projects-tm-2-link", "#projects-tm-3-link" ]
                  ], [ // Feel the Breeze
-                   [ "#projects-ftb-1", "#projects-ftb-2", "#projects-ftb-3", "#projects-ftb-4" ],
-                   [ "#projects-ftb-1-link", "#projects-ftb-2-link", "#projects-ftb-3-link", "#projects-ftb-4-link" ]
+                   [ "#projects-ftb-1", "#projects-ftb-2", "#projects-ftb-3" ],
+                   [ "#projects-ftb-1-link", "#projects-ftb-2-link", "#projects-ftb-3-link" ]
                  ], [ // Offr
-                   [ "#projects-offr-1", "#projects-offr-2", "#projects-offr-3", "#projects-offr-4" ],
-                   [ "#projects-offr-1-link", "#projects-offr-2-link", "#projects-offr-3-link", "#projects-offr-4-link" ]
+                   [ "#projects-offr-1", "#projects-offr-2", "#projects-offr-3" ],
+                   [ "#projects-offr-1-link", "#projects-offr-2-link", "#projects-offr-3-link" ]
                  ]
                ];
 
@@ -257,13 +257,13 @@ $(".work-project-title").hover(function() {
     $(".work-project-title").css("transition", "0.5s all");
     
     if ($(this).is("#project-peo") == true)
-        $("#work-projects-list-background").css("background-image", "url('work1.png')");
+        $("#work-projects-list-background").css("background-image", "url('images/work/PEO/peo_phone.jpg')");
     else if ($(this).is("#project-tm") == true)
-        $("#work-projects-list-background").css("background-image", "url('work2.png')");
+        $("#work-projects-list-background").css("background-image", "url('images/work/TM/tm_phone.jpg')");
     else if ($(this).is("#project-ftb") == true)
-        $("#work-projects-list-background").css("background-image", "url('work1.png')");
+        $("#work-projects-list-background").css("background-image", "url('images/work/FTB/ftb_phone.jpg')");
     else if ($(this).is("#project-offr") == true)
-        $("#work-projects-list-background").css("background-image", "url('work2.png')");
+        $("#work-projects-list-background").css("background-image", "url('images/work/OFFR/offr_laptop.jpg')");
     else {
         $("#work-projects-list-background").css("background-image", "none");
         $("#work-projects-list-background").css("background-color", "red");
