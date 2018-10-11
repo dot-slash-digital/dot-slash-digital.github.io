@@ -92,12 +92,14 @@ window.onload = function() {
     fullSizeHome();
     hideMobileMenu();
     setProjectsImg();
+    setServicesHeight();
 }
 
 $(window).resize(function() {
     fullSizeHome();
     hideMobileMenu();
     setProjectsImg();
+    setServicesHeight();
 });
 
 // Set home section of home page to the full height of the window
@@ -210,6 +212,21 @@ function aboutPhotoHover(t, hover) {
         $("#about-" + team_member + " img").css("-webkit-filter", "contrast(75%) grayscale(100%)");
         $("#about-" + team_member + " img").css("filter", "contrast(75%) grayscale(100%)");
     }
+}
+
+function setServicesHeight() {
+    if ($(window).width() > 750 && $(window).width() < 1001) {
+        var maxHeight = 0;
+        $(".services-group").each(function() {
+            if ($(this).height() > maxHeight)
+                maxHeight = $(this).height();
+        });
+
+        $(".services-group").each(function() {
+            $(this).height(maxHeight);
+        });
+    } else
+        $(".services-group").css("height", "auto");
 }
 
 // use requestAnimationFrame for smoothness (shimmed with setTimeout fallback)
