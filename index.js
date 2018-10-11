@@ -260,12 +260,14 @@ window.requestAnimFrame = (function(){
 // Button to open mobile menu
 $("#menu-mobile-button i").click(function() {
     $("#mobile-menu").css("display", "block");
+    $("#mobile-menu").css("overflow", "hidden");
     $("body").css("overflow", "hidden");
 });
 
 // Button to close mobile menu
 $("#mobile-menu-close").click(function() {
     $("#mobile-menu").css("display", "none");
+    $("#mobile-menu").css("overflow", "auto");
     $("body").css("overflow", "auto");
 });
 
