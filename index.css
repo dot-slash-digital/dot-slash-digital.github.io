@@ -1337,6 +1337,13 @@ body {
     }
 }
 
+/* width = 670px or more */
+@media (min-width: 670px) {
+    .contact-form-sub-text {
+        padding: 0 50px;
+    }
+}
+
 /* width = 430px or less */
 @media (max-width: 430px) {
     #contact-form {
