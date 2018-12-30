@@ -711,7 +711,7 @@ body {
 
 #work-projects-list-background {
     background-color: #c3c3c3;
-    background-image: url("work1.png");
+    background-image: none;
     background-repeat: no-repeat;
     background-position: center;
     background-size: 100% auto;
