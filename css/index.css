@@ -1190,10 +1190,11 @@ body {
 .contact-form-text {
     font-size: 32px;
     text-align: left;
+    margin-bottom: 10px;
 }
 
 #contact-name-input {
-    width: 472px;
+    width: 465px;
 }
 
 #contact-company-input {
@@ -1238,7 +1239,7 @@ body {
     border: 0;
     color: #757575;
     border-bottom: 3px #757575 solid;
-    transition: 0.5s all;
+    transition: 0.5s border;
 }
 
 .contact-form-text textarea {
@@ -1317,15 +1318,15 @@ body {
     }
     
     #contact-name-input {
-        width: 274px;
+        width: 273px;
     }
     
     #contact-company-input {
-        width: 293px;
+        width: 290px;
     }
     
     #contact-email-input {
-        width: 235px;
+        width: 239px;
     }
     
     .contact-form-checkbox {
@@ -1355,15 +1356,15 @@ body {
     }
     
     #contact-name-input {
-        width: 164px;
+        width: 168px;
     }
     
     #contact-company-input {
-        width: 180px;
+        width: 183px;
     }
     
     #contact-email-input {
-        width: 295px;
+        width: 296px;
     }
     
     .contact-form-checkbox {
