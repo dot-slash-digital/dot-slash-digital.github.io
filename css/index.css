@@ -804,7 +804,8 @@ body {
 
 .projects-gallery-scroller {
     height: 25px;
-    margin: 5px 0;
+    width: 175px;
+    margin: 5px auto;
 }
 
 .projects-left-arrow {
