@@ -192,6 +192,8 @@ function aboutPhotoHover(t, hover) {
         team_member = "nick";
     else if (t.is($("#about-ivy > .team-member-selector")) || t.is($("#about-ivy > .about-bio > .about-bio-social")) == true)
         team_member = "ivy";
+    else if (t.is($("#about-sam > .team-member-selector")) || t.is($("#about-sam > .about-bio > .about-bio-social")) == true)
+        team_member = "sam";
     
     if (hover == "on") {
         $("#about-" + team_member + " .about-bio").css("background-color", "rgba(255, 0, 0, 0.8)");
