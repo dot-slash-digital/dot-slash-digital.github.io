@@ -1,0 +1,41 @@
+#work-projects-list-background {
+    background-color: #c3c3c3;
+    background-image: none;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-blend-mode: multiply;
+}
+
+#work-projects-list {
+    background-color: #f1f1f1;
+    padding: 120px 0;
+    transition: background 0.5s;
+}
+
+.work-project {
+    margin: 120px 12.5%;
+    text-align: center;
+}
+
+.work-project-title {
+    font-size: 72px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #212529;
+    line-height: 1;
+    
+    transition: 5s all;
+}
+
+.work-project-title:hover {
+    color: #212529;
+}
+
+/* width = 565px or less */
+@media (max-width: 565px) {
+    .work-project-title {
+        font-size: 54px;
+    }
+}

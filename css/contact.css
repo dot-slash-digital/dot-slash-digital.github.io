@@ -1,0 +1,200 @@
+#contact-body {
+    width: 100%;
+    margin: 0;
+    background-color: #f1f1f1;
+}
+
+#contact-form {
+    width: 700px;
+    margin: 0 auto;
+    padding: 240px 0;
+}
+
+.contact-form-text {
+    font-size: 32px;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+#contact-name-input {
+    width: 465px;
+}
+
+#contact-company-input {
+    width: 493px;
+}
+
+#contact-email-input {
+    width: 410px;
+}
+
+.contact-form-checkbox {
+    font-size: 24px;
+    margin: 15px;
+    display: block;
+}
+
+.contact-form-checkbox div svg path {
+    fill: black;
+    color: black;
+}
+
+.contact-form-checkbox div svg {
+    padding: 2px;
+}
+
+.contact-form-checkbox div label div {
+    position: absolute;
+    bottom: 2px;
+}
+
+#contact-form > div:nth-child(5) {
+    margin-top: 7.5px;
+}
+
+#contact-form > div:nth-child(8) {
+    margin-bottom: 7.5px;
+}
+
+.contact-form-text input, .contact-form-text textarea {
+    background-color: transparent;
+    line-height: 1;
+    border: 0;
+    color: #757575;
+    border-bottom: 3px #757575 solid;
+    transition: 0.5s border;
+}
+
+.contact-form-text textarea {
+    width: 100%;
+    height: 200px;
+    resize: none;
+}
+
+.contact-form-text input:focus, .contact-form-text textarea:focus {
+    outline: none;
+    border-bottom-color: #212529;
+}
+
+#contact-outer-button {
+    padding-top: 50px;
+    text-align: center;
+}
+
+::placeholder {
+    color: #757575;
+    opacity: 1;
+}
+
+:-ms-input-placeholder {
+    color: #757575;
+}
+
+::-ms-input-placeholder {
+    color: #757575;
+}
+
+.form-valid {
+    color: #189d18 !important;
+    border-bottom-color: #189d18 !important;
+}
+
+.form-valid::placeholder {
+    color: #189d18 !important;
+    opacity: 1;
+}
+
+.form-valid:-ms-input-placeholder {
+    color: #189d18 !important;
+}
+
+.form-valid::-ms-input-placeholder {
+    color: #189d18 !important;
+}
+
+.form-invalid {
+    color: #fc1313 !important;
+    border-bottom-color: #fc1313 !important;
+}
+
+.form-invalid::placeholder {
+    color: #fc1313 !important;
+    opacity: 1;
+}
+
+.form-invalid:-ms-input-placeholder {
+    color: #fc1313 !important;
+}
+
+.form-invalid::-ms-input-placeholder {
+    color: #fc1313 !important;
+}
+
+/* width = 750px or less */
+@media (max-width: 750px) {
+    #contact-form {
+        width: 420px;
+    }
+    
+    .contact-form-text {
+        font-size: 20px;
+    }
+    
+    #contact-name-input {
+        width: 273px;
+    }
+    
+    #contact-company-input {
+        width: 290px;
+    }
+    
+    #contact-email-input {
+        width: 239px;
+    }
+    
+    .contact-form-checkbox {
+        font-size: 16px;
+    }
+    
+    .contact-form-text textarea {
+        height: 150px;
+    }
+}
+
+/* width = 670px or more */
+@media (min-width: 670px) {
+    .contact-form-sub-text {
+        padding: 0 50px;
+    }
+}
+
+/* width = 430px or less */
+@media (max-width: 430px) {
+    #contact-form {
+        width: 300px;
+    }
+    
+    .contact-form-text {
+        font-size: 18px;
+    }
+    
+    #contact-name-input {
+        width: 168px;
+    }
+    
+    #contact-company-input {
+        width: 183px;
+    }
+    
+    #contact-email-input {
+        width: 296px;
+    }
+    
+    .contact-form-checkbox {
+        font-size: 14px;
+    }
+    
+    .contact-form-text textarea {
+        height: 125px;
+    }
+}
