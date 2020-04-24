@@ -39,3 +39,19 @@
         font-size: 54px;
     }
 }
+
+#work-peo-bg {
+    background-image: url('../images/work/PEO/peo_phone.jpg');
+}
+
+#work-ftb-bg {
+    background-image: url('../images/work/FTB/ftb_phone.jpg');
+}
+
+#work-tm-bg {
+    background-image: url('../images/work/TM/tm_phone.jpg');
+}
+
+#work-offr-bg {
+    background-image: url('../images/work/OFFR/offr_laptop.jpg');
+}
