@@ -714,7 +714,7 @@ body {
     background-image: none;
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 100% auto;
+    background-size: cover;
     background-attachment: fixed;
     background-blend-mode: multiply;
 }
