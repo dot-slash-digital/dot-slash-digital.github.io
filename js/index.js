@@ -82,9 +82,9 @@ var projects = [
                  ], [ // Feel the Breeze
                    [ "#projects-ftb-1", "#projects-ftb-2", "#projects-ftb-3" ],
                    [ "#projects-ftb-1-link", "#projects-ftb-2-link", "#projects-ftb-3-link" ]
-                 ], [ // Offr
-                   [ "#projects-offr-1", "#projects-offr-2", "#projects-offr-3" ],
-                   [ "#projects-offr-1-link", "#projects-offr-2-link", "#projects-offr-3-link" ]
+                 ], [ // Dr. William G. Pappas, DDS
+                   [ "#projects-dwp-1", "#projects-dwp-2", "#projects-dwp-3" ],
+                   [ "#projects-dwp-1-link", "#projects-dwp-2-link", "#projects-dwp-3-link" ]
                  ]
                ];
 
@@ -139,8 +139,8 @@ function removeActive(project, index) {
     } else if (project == "ftb") {
         img = ".projects-ftb img";
         projectIndex = 2;
-    } else if (project == "offr") {
-        img = ".projects-offr img";
+    } else if (project == "dwp") {
+        img = ".projects-dwp img";
         projectIndex = 3;
     }
     
@@ -163,7 +163,7 @@ function getProjectIndex(t) {
         return 1;
     else if (t.is(".projects-ftb") == true)
         return 2;
-    else if (t.is(".projects-offr") == true)
+    else if (t.is(".projects-dwp") == true)
         return 3;
     else
         return -1;
@@ -176,8 +176,8 @@ function getProjectName(t) {
         return "tm";
     else if (t.is(".projects-ftb") == true)
         return "ftb";
-    else if (t.is(".projects-offr") == true)
-        return "offr";
+    else if (t.is(".projects-dwp") == true)
+        return "dwp";
     else
         return "";
 }
@@ -287,8 +287,12 @@ $(".work-project-title").hover(function() {
         $("#work-projects-list-background").css("background-image", "url('images/work/TM/tm_phone.jpg')");
     else if ($(this).is("#project-ftb") == true)
         $("#work-projects-list-background").css("background-image", "url('images/work/FTB/ftb_phone.jpg')");
-    else if ($(this).is("#project-offr") == true)
-        $("#work-projects-list-background").css("background-image", "url('images/work/OFFR/offr_laptop.jpg')");
+    else if ($(this).is("#project-dwp") == true)
+        $("#work-projects-list-background").css("background-image", "url('images/work/DWP/dwp_desktop.jpg')");
+    else if ($(this).is("#project-bmb") == true)
+        $("#work-projects-list-background").css("background-image", "url('images/work/bmb.jpg')");
+    else if ($(this).is("#project-hib") == true)
+        $("#work-projects-list-background").css("background-image", "url('images/work/hib.jpg')");
     else {
         $("#work-projects-list-background").css("background-image", "none");
         $("#work-projects-list-background").css("background-color", "red");
