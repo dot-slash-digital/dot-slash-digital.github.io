@@ -8,52 +8,62 @@
 
 <url>
   <loc>https://dotslashdigital.com/</loc>
-  <lastmod>2018-10-11T03:04:34+00:00</lastmod>
+  <lastmod>2020-05-02T23:55:38+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>https://dotslashdigital.com/index.html</loc>
-  <lastmod>2018-10-11T03:04:34+00:00</lastmod>
+  <lastmod>2020-05-02T23:55:38+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://dotslashdigital.com/work.html</loc>
-  <lastmod>2018-10-11T03:04:34+00:00</lastmod>
+  <lastmod>2020-05-02T23:55:38+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://dotslashdigital.com/services.html</loc>
-  <lastmod>2018-10-11T03:04:34+00:00</lastmod>
+  <lastmod>2020-05-02T23:55:38+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://dotslashdigital.com/about.html</loc>
-  <lastmod>2018-10-11T03:04:34+00:00</lastmod>
+  <lastmod>2020-05-02T23:55:38+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://dotslashdigital.com/contact.html</loc>
-  <lastmod>2018-10-11T03:04:34+00:00</lastmod>
+  <lastmod>2020-05-02T23:55:38+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://dotslashdigital.com/work/peo.html</loc>
-  <lastmod>2018-10-11T03:04:34+00:00</lastmod>
-  <priority>0.64</priority>
+  <lastmod>2020-05-02T23:55:38+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
   <loc>https://dotslashdigital.com/work/tm.html</loc>
-  <lastmod>2018-10-11T03:04:34+00:00</lastmod>
+  <lastmod>2020-05-02T23:55:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dotslashdigital.com/work/bmb.html</loc>
+  <lastmod>2020-05-02T23:55:38+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://dotslashdigital.com/work/ftb.html</loc>
-  <lastmod>2018-10-11T03:04:34+00:00</lastmod>
+  <lastmod>2020-05-02T23:55:38+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://dotslashdigital.com/work/offr.html</loc>
-  <lastmod>2018-10-11T03:04:34+00:00</lastmod>
+  <loc>https://dotslashdigital.com/work/hib.html</loc>
+  <lastmod>2020-05-02T23:55:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://dotslashdigital.com/work/dwp.html</loc>
+  <lastmod>2020-05-02T23:55:38+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 
