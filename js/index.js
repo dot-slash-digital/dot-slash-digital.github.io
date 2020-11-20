@@ -73,20 +73,20 @@ $(document).ready(function() {
 })(jQuery);
 
 var projects = [
-                 [ // Personal Eyes Opticians
-                   [ "#projects-peo-1", "#projects-peo-2", "#projects-peo-3" ],
-                   [ "#projects-peo-1-link", "#projects-peo-2-link", "#projects-peo-3-link" ]
-                 ], [ // Timeless Massage
-                   [ "#projects-tm-1", "#projects-tm-2", "#projects-tm-3" ],
-                   [ "#projects-tm-1-link", "#projects-tm-2-link", "#projects-tm-3-link" ]
-                 ], [ // Feel the Breeze
-                   [ "#projects-ftb-1", "#projects-ftb-2", "#projects-ftb-3" ],
-                   [ "#projects-ftb-1-link", "#projects-ftb-2-link", "#projects-ftb-3-link" ]
-                 ], [ // Dr. William G. Pappas, DDS
-                   [ "#projects-dwp-1", "#projects-dwp-2", "#projects-dwp-3" ],
-                   [ "#projects-dwp-1-link", "#projects-dwp-2-link", "#projects-dwp-3-link" ]
-                 ]
-               ];
+    [ // Personal Eyes Opticians
+        [ "#projects-peo-1", "#projects-peo-2", "#projects-peo-3" ],
+        [ "#projects-peo-1-link", "#projects-peo-2-link", "#projects-peo-3-link" ]
+    ], [ // Timeless Massage
+        [ "#projects-tm-1", "#projects-tm-2", "#projects-tm-3" ],
+        [ "#projects-tm-1-link", "#projects-tm-2-link", "#projects-tm-3-link" ]
+    ], [ // Feel the Breeze
+        [ "#projects-ftb-1", "#projects-ftb-2", "#projects-ftb-3" ],
+        [ "#projects-ftb-1-link", "#projects-ftb-2-link", "#projects-ftb-3-link" ]
+    ], [ // Dr. William G. Pappas, DDS
+        [ "#projects-dwp-1", "#projects-dwp-2", "#projects-dwp-3" ],
+        [ "#projects-dwp-1-link", "#projects-dwp-2-link", "#projects-dwp-3-link" ]
+    ]
+];
 
 window.onload = function() {
     fullSizeHome();
@@ -198,10 +198,12 @@ function aboutPhotoHover(t, hover) {
         team_member = "yohan";
     else if (t.is($("#about-sahana > .team-member-selector")) || t.is($("#about-sahana > .about-bio > .about-bio-social")) == true)
         team_member = "sahana";
-    
+    else if (t.is($("#about-crysta > .team-member-selector")) || t.is($("#about-crysta > .about-bio > .about-bio-social")) == true)
+        team_member = "crysta";
+
     if (hover == "on") {
         $("#about-" + team_member + " .about-bio").css("background-color", "rgba(255, 0, 0, 0.8)");
-    
+
         $("#about-" + team_member + " .about-bio-name").css("margin-bottom", "30px");
         $("#about-" + team_member + " .about-bio-title").css("opacity", "1");
         $("#about-" + team_member + " .about-bio-social").css("opacity", "1");
