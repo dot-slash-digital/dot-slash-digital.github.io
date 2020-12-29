@@ -1,3 +1,5 @@
+const all_team_members = ["matt", "connor", "nick", "ivy", "sam", "yohan", "sahana", "crysta", "christina"];
+
 /*
 
 document.ready -- runs when the DOM is ready, e.g. all elements are there to be found/used, but not necessarily all content
@@ -194,12 +196,12 @@ function aboutPhotoHover(t, hover) {
         team_member = "ivy";
     else if (t.is($("#about-sam > .team-member-selector")) || t.is($("#about-sam > .about-bio > .about-bio-social")) == true)
         team_member = "sam";
-    else if (t.is($("#about-yohan > .team-member-selector")) || t.is($("#about-yohan > .about-bio > .about-bio-social")) == true)
-        team_member = "yohan";
-    else if (t.is($("#about-sahana > .team-member-selector")) || t.is($("#about-sahana > .about-bio > .about-bio-social")) == true)
-        team_member = "sahana";
-    else if (t.is($("#about-crysta > .team-member-selector")) || t.is($("#about-crysta > .about-bio > .about-bio-social")) == true)
-        team_member = "crysta";
+    for (name of all_team_members) {
+        if (t.is($("#about-" + name + " > .team-member-selector")) || t.is($("#about-" + name + " > .about-bio > .about-bio-social")) == true) {
+            team_member = name;
+            break;
+        }
+    }
 
     if (hover == "on") {
         $("#about-" + team_member + " .about-bio").css("background-color", "rgba(255, 0, 0, 0.8)");
