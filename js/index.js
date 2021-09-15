@@ -1,4 +1,7 @@
-const all_team_members = ["matt", "connor", "nick", "ivy", "sam", "yohan", "sahana", "crysta", "christina"];
+const all_team_members = [
+    "matt", "connor", "nick", "ivy", "sam", "yohan",
+    "sahana", "crysta", "christina", "jino"
+];
 
 /*
 
@@ -122,7 +125,7 @@ function setProjectsImg() {
     // height = width * 0.6
     var imageWidth = $(".projects-gallery").width();
     var imageHeight = imageWidth * 0.6;
-    
+
     $(".projects-gallery").height(imageHeight);
     $(".projects-gallery img").height(imageHeight);
     $(".projects-gallery img").width(imageWidth);
@@ -145,7 +148,7 @@ function removeActive(project, index) {
         img = ".projects-dwp img";
         projectIndex = 3;
     }
-    
+
     $(img).each(function() {
         for (var i = 0; i < projects[projectIndex][0].length; i++) {
             if ($(this).is($(projects[projectIndex][0][i])) == true && index != i + 1) {
@@ -185,17 +188,7 @@ function getProjectName(t) {
 }
 
 function aboutPhotoHover(t, hover) {
-    var team_member = "";
-    if (t.is($("#about-matt > .team-member-selector")) || t.is($("#about-matt > .about-bio > .about-bio-social")) == true)
-        team_member = "matt";
-    else if (t.is($("#about-connor > .team-member-selector")) || t.is($("#about-connor > .about-bio > .about-bio-social")) == true)
-        team_member = "connor";
-    else if (t.is($("#about-nick > .team-member-selector")) || t.is($("#about-nick > .about-bio > .about-bio-social")) == true)
-        team_member = "nick";
-    else if (t.is($("#about-ivy > .team-member-selector")) || t.is($("#about-ivy > .about-bio > .about-bio-social")) == true)
-        team_member = "ivy";
-    else if (t.is($("#about-sam > .team-member-selector")) || t.is($("#about-sam > .about-bio > .about-bio-social")) == true)
-        team_member = "sam";
+    let team_member = "";
     for (name of all_team_members) {
         if (t.is($("#about-" + name + " > .team-member-selector")) || t.is($("#about-" + name + " > .about-bio > .about-bio-social")) == true) {
             team_member = name;
@@ -210,19 +203,13 @@ function aboutPhotoHover(t, hover) {
         $("#about-" + team_member + " .about-bio-title").css("opacity", "1");
         $("#about-" + team_member + " .about-bio-social").css("opacity", "1");
         $("#about-" + team_member + " .about-bio-social a").css("cursor", "pointer");
-
-        $("#about-" + team_member + " img").css("-webkit-filter", "contrast(100%) grayscale(0%)");
-        $("#about-" + team_member + " img").css("filter", "contrast(100%) grayscale(0%)");
     } else if (hover == "off") {
         $("#about-" + team_member + " .about-bio").css("background-color", "transparent");
-    
+
         $("#about-" + team_member + " .about-bio-name").css("margin-bottom", "0");
         $("#about-" + team_member + " .about-bio-title").css("opacity", "0");
         $("#about-" + team_member + " .about-bio-social").css("opacity", "0");
         $("#about-" + team_member + " .about-bio-social a").css("cursor", "none");
-
-        $("#about-" + team_member + " img").css("-webkit-filter", "contrast(75%) grayscale(100%)");
-        $("#about-" + team_member + " img").css("filter", "contrast(75%) grayscale(100%)");
     }
 }
 
@@ -266,7 +253,7 @@ window.requestAnimFrame = (function(){
         $("#sec").css("-webkit-transform", "rotate(" + (ms * 0.006) + "deg)");
         $("#hour").css("-webkit-transform", "rotate(" + ((ms / 120000) + (ms / 7200000)) + "deg)");
         $("#min").css("-webkit-transform", "rotate(" + (ms / 10000) + "deg)");
-    } 
+    }
 })();
 
 // Button to open mobile menu
@@ -286,7 +273,7 @@ $("#mobile-menu-close").click(function() {
 // Transitions work page background between solid color and project image when hovering over project title
 $(".work-project-title").hover(function() {
     $(".work-project-title").css("transition", "0.5s all");
-    
+
     if ($(this).is("#project-peo") == true)
         $("#work-projects-list-background").css("background-image", "url('images/work/PEO/peo_phone.jpg')");
     else if ($(this).is("#project-tm") == true)
@@ -303,7 +290,7 @@ $(".work-project-title").hover(function() {
         $("#work-projects-list-background").css("background-image", "none");
         $("#work-projects-list-background").css("background-color", "red");
     }
-    
+
     $(".work-project-title").css("color", "rgba(241, 241, 241, 0.25)"); // rgba(241, 241, 241, 0.25) = #f1f1f1 with opacity
     $(this).css("color", "#f1f1f1");
     $("#work-projects-list").css("background-color", "transparent");
@@ -316,7 +303,7 @@ $(".work-project-title").hover(function() {
 $(".projects-numbers-list ul li").click(function() {
     var projectName = getProjectName($(this));
     var projectIndex = getProjectIndex($(this));
-    
+
     for (var i = 0; i < projects[projectIndex][0].length; i++) {
         if ($(this).is(projects[projectIndex][1][i]) == true) {
             $(projects[projectIndex][0][i]).addClass("projects-active");
@@ -330,12 +317,12 @@ $(".projects-numbers-list ul li").click(function() {
 // Change photo using left arrow
 $(".projects-left-arrow").click(function() {
     var projectIndex = getProjectIndex($(this));
-    
+
     for (var i = 0; i < projects[projectIndex][0].length; i++) {
         if ($(projects[projectIndex][1][i]).is($(".projects-number-active")) == true) {
             $(projects[projectIndex][0][i]).removeClass("projects-active");
             $(projects[projectIndex][1][i]).removeClass("projects-number-active");
-            
+
             if (i == 0) {
                 $(projects[projectIndex][0][projects[projectIndex][0].length - 1]).addClass("projects-active");
                 $(projects[projectIndex][1][projects[projectIndex][0].length - 1]).addClass("projects-number-active");
@@ -343,7 +330,7 @@ $(".projects-left-arrow").click(function() {
                 $(projects[projectIndex][0][i - 1]).addClass("projects-active");
                 $(projects[projectIndex][1][i - 1]).addClass("projects-number-active");
             }
-            
+
             break;
         }
     }
@@ -352,12 +339,12 @@ $(".projects-left-arrow").click(function() {
 // Change photo using right arrow
 $(".projects-right-arrow").click(function() {
     var projectIndex = getProjectIndex($(this));
-    
+
     for (var i = 0; i < projects[projectIndex][0].length; i++) {
         if ($(projects[projectIndex][1][i]).is($(".projects-number-active")) == true) {
             $(projects[projectIndex][0][i]).removeClass("projects-active");
             $(projects[projectIndex][1][i]).removeClass("projects-number-active");
-            
+
             if (i == projects[projectIndex][0].length - 1) {
                 $(projects[projectIndex][0][0]).addClass("projects-active");
                 $(projects[projectIndex][1][0]).addClass("projects-number-active");
@@ -365,7 +352,7 @@ $(".projects-right-arrow").click(function() {
                 $(projects[projectIndex][0][i + 1]).addClass("projects-active");
                 $(projects[projectIndex][1][i + 1]).addClass("projects-number-active");
             }
-            
+
             break;
         }
     }
@@ -392,7 +379,7 @@ $("#contact-form").submit(function() {
         $("#contact-name-input").removeClass("form-invalid");
         $("#contact-name-input").addClass("form-valid");
     }
-    
+
     if ($("#contact-company-input").val() == "") {
         $("#contact-company-input").removeClass("form-valid");
         $("#contact-company-input").addClass("form-invalid");
@@ -400,7 +387,7 @@ $("#contact-form").submit(function() {
         $("#contact-company-input").removeClass("form-invalid");
         $("#contact-company-input").addClass("form-valid");
     }
-    
+
     if ($("#contact-email-input").val() == "") {
         $("#contact-email-input").removeClass("form-valid");
         $("#contact-email-input").addClass("form-invalid");
@@ -408,7 +395,7 @@ $("#contact-form").submit(function() {
         $("#contact-email-input").removeClass("form-invalid");
         $("#contact-email-input").addClass("form-valid");
     }
-    
+
     if ($("#contact-description-input").val() == "") {
         $("#contact-description-input").removeClass("form-valid");
         $("#contact-description-input").addClass("form-invalid");
@@ -416,7 +403,7 @@ $("#contact-form").submit(function() {
         $("#contact-description-input").removeClass("form-invalid");
         $("#contact-description-input").addClass("form-valid");
     }
-    
+
     if ($("#contact-name-input").val() != "" && $("#contact-company-input").val() != "" && $("#contact-email-input").val() != "" && $("#contact-description-input").val() != "")
         return true;
     else

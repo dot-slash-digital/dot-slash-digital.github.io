@@ -44,13 +44,16 @@
     margin: 2%;
     text-align: center;
     float: left;
-}
-
-.team-member img {
-    width: 100%;
+    background-position: center center;
+    background-size: cover;
     -webkit-filter: contrast(75%) grayscale(100%);
     filter: contrast(75%) grayscale(100%);
     transition: 0.5s all;
+}
+
+.team-member:hover {
+    -webkit-filter: contrast(100%) grayscale(0%);
+    filter: contrast(100%) grayscale(0%);
 }
 
 .about-bio {
@@ -67,7 +70,7 @@
     line-height: 1;
     text-align: left;
     color: white;
-    
+
     transition: 0.5s all;
 }
 
@@ -75,11 +78,11 @@
     font-size: 14px;
     line-height: 1;
     color: white;
-    
+
     position: absolute;
     left: 5%;
     bottom: 15%;
-    
+
     opacity: 0;
     transition: 0.5s all;
 }
@@ -89,11 +92,11 @@
     line-height: 1;
     color: white;
     z-index: 2;
-    
+
     position: absolute;
     right: 5%;
     bottom: 12.5%;
-    
+
     opacity: 0;
     transition: 0.5s all;
 }
@@ -124,10 +127,25 @@
     margin-bottom: 25px;
 }
 
+/* width = 1200px or larger */
+@media (min-width: 1200px) {
+    .team-member {
+        height: calc(calc(100vw - 272px) / 3);
+    }
+}
+
+/* width = 1199px - 901px */
+@media (min-width: 901px) and (max-width: 1199px) {
+    .team-member {
+        height: calc(calc(100vw - 48px) / 3);
+    }
+}
+
 /* width = 900px or less */
 @media (max-width: 900px) {
     .team-member {
         width: 46%;
+        height: calc(calc(100vw - 48px) / 2);
     }
 }
 
@@ -136,8 +154,9 @@
     #about-who-description {
         width: 90%;
     }
-    
+
     .team-member {
         width: 100%;
+        height: calc(100vw - 48px);
     }
 }
