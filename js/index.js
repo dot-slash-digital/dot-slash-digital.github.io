@@ -1,6 +1,7 @@
 const all_team_members = [
     "matt", "connor", "nick", "ivy", "sam", "yohan",
-    "sahana", "crysta", "christina", "jino", "jazmin"
+    "sahana", "crysta", "christina", "jino", "jazmin",
+    "drew"
 ];
 
 /*
