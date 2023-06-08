@@ -1,57 +1,57 @@
 #work-projects-list-background {
-    background-color: #c3c3c3;
-    background-image: none;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed;
-    background-blend-mode: multiply;
+  background-color: #c3c3c3;
+  background-image: none;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-blend-mode: multiply;
 }
 
 #work-projects-list {
-    background-color: #f1f1f1;
-    padding: 120px 0;
-    transition: background 0.5s;
+  background-color: #f1f1f1;
+  padding: 120px 0;
+  transition: background 0.5s;
 }
 
 .work-project {
-    margin: 120px 12.5%;
-    text-align: center;
+  margin: 120px 12.5%;
+  text-align: center;
 }
 
 .work-project-title {
-    font-size: 72px;
-    cursor: pointer;
-    text-decoration: none;
-    color: #212529;
-    line-height: 1;
-    
-    transition: 5s all;
+  font-size: 72px;
+  cursor: pointer;
+  text-decoration: none;
+  color: #212529;
+  line-height: 1;
+
+  transition: 5s all;
 }
 
 .work-project-title:hover {
-    color: #212529;
+  color: #212529;
 }
 
 /* width = 565px or less */
 @media (max-width: 565px) {
-    .work-project-title {
-        font-size: 54px;
-    }
+  .work-project-title {
+    font-size: 54px;
+  }
 }
 
 #work-peo-bg {
-    background-image: url('../images/work/PEO/peo_phone.jpg');
+  background-image: url("../images/work/PEO/peo_phone.jpg");
 }
 
 #work-ftb-bg {
-    background-image: url('../images/work/FTB/ftb_phone.jpg');
+  background-image: url("../images/work/FTB/ftb_phone.jpg");
 }
 
 #work-tm-bg {
-    background-image: url('../images/work/TM/tm_phone.jpg');
+  background-image: url("../images/work/TM/tm_phone.jpg");
 }
 
 #work-offr-bg {
-    background-image: url('../images/work/OFFR/offr_laptop.jpg');
+  background-image: url("../images/work/OFFR/offr_laptop.jpg");
 }

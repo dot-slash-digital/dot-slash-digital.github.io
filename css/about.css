@@ -1,162 +1,164 @@
 #about-section {
-    width: 100%;
-    padding: 100px 24px;
-    transition: 0.5s all;
-    background-color: #f1f1f1;
+  width: 100%;
+  padding: 100px 24px;
+  transition: 0.5s all;
+  background-color: #f1f1f1;
 }
 
 /* width = 1200px or larger */
 @media (min-width: 1200px) {
-    #about-section {
-        padding: 100px calc(24px + 112px);
-    }
+  #about-section {
+    padding: 100px calc(24px + 112px);
+  }
 }
 
-#about-who, #about-team, #about-join {
-    padding: 100px 0;
+#about-who,
+#about-team,
+#about-join {
+  padding: 100px 0;
 }
 
 #about-who-title {
-    font-size: 48px;
-    line-height: 1;
-    text-align: center;
-    margin-bottom: 50px;
+  font-size: 48px;
+  line-height: 1;
+  text-align: center;
+  margin-bottom: 50px;
 }
 
 #about-who-description {
-    width: 75%;
-    margin: 0 auto;
+  width: 75%;
+  margin: 0 auto;
 }
 
 #about-team-title {
-    font-size: 48px;
-    text-align: center;
-    margin-bottom: 50px;
+  font-size: 48px;
+  text-align: center;
+  margin-bottom: 50px;
 }
 
 #about-team-members {
-    width: 100%;
+  width: 100%;
 }
 
 .team-member {
-    position: relative;
-    width: 29.33%;
-    margin: 2%;
-    text-align: center;
-    float: left;
-    background-position: center center;
-    background-size: cover;
-    -webkit-filter: contrast(75%) grayscale(100%);
-    filter: contrast(75%) grayscale(100%);
-    transition: 0.5s all;
+  position: relative;
+  width: 29.33%;
+  margin: 2%;
+  text-align: center;
+  float: left;
+  background-position: center center;
+  background-size: cover;
+  -webkit-filter: contrast(75%) grayscale(100%);
+  filter: contrast(75%) grayscale(100%);
+  transition: 0.5s all;
 }
 
 .team-member:hover {
-    -webkit-filter: contrast(100%) grayscale(0%);
-    filter: contrast(100%) grayscale(0%);
+  -webkit-filter: contrast(100%) grayscale(0%);
+  filter: contrast(100%) grayscale(0%);
 }
 
 .about-bio {
-    position: absolute;
-    width: 100%;
-    bottom: 0;
-    padding: 5%;
-    transition: 0.5s all;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  padding: 5%;
+  transition: 0.5s all;
 }
 
 .about-bio-name {
-    width: 100%;
-    font-size: 36px;
-    line-height: 1;
-    text-align: left;
-    color: white;
+  width: 100%;
+  font-size: 36px;
+  line-height: 1;
+  text-align: left;
+  color: white;
 
-    transition: 0.5s all;
+  transition: 0.5s all;
 }
 
 .about-bio-title {
-    font-size: 14px;
-    line-height: 1;
-    color: white;
+  font-size: 14px;
+  line-height: 1;
+  color: white;
 
-    position: absolute;
-    left: 5%;
-    bottom: 15%;
+  position: absolute;
+  left: 5%;
+  bottom: 15%;
 
-    opacity: 0;
-    transition: 0.5s all;
+  opacity: 0;
+  transition: 0.5s all;
 }
 
 .about-bio-social {
-    font-size: 20px;
-    line-height: 1;
-    color: white;
-    z-index: 2;
+  font-size: 20px;
+  line-height: 1;
+  color: white;
+  z-index: 2;
 
-    position: absolute;
-    right: 5%;
-    bottom: 12.5%;
+  position: absolute;
+  right: 5%;
+  bottom: 12.5%;
 
-    opacity: 0;
-    transition: 0.5s all;
+  opacity: 0;
+  transition: 0.5s all;
 }
 
 .about-bio-social a {
-    padding: 0 2.5px;
-    color: #fff;
-    transition: 0.5s all;
+  padding: 0 2.5px;
+  color: #fff;
+  transition: 0.5s all;
 }
 
 .about-bio-social a:hover {
-    color: #e5e5e5;
+  color: #e5e5e5;
 }
 
 .team-member-selector {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    bottom: 0;
-    cursor: pointer;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  bottom: 0;
+  cursor: pointer;
 }
 
 #about-join {
-    text-align: center;
+  text-align: center;
 }
 
 #about-join-tagline {
-    margin-bottom: 25px;
+  margin-bottom: 25px;
 }
 
 /* width = 1200px or larger */
 @media (min-width: 1200px) {
-    .team-member {
-        height: calc(calc(100vw - 272px) / 3);
-    }
+  .team-member {
+    height: calc(calc(100vw - 272px) / 3);
+  }
 }
 
 /* width = 1199px - 901px */
 @media (min-width: 901px) and (max-width: 1199px) {
-    .team-member {
-        height: calc(calc(100vw - 48px) / 3);
-    }
+  .team-member {
+    height: calc(calc(100vw - 48px) / 3);
+  }
 }
 
 /* width = 900px or less */
 @media (max-width: 900px) {
-    .team-member {
-        width: 46%;
-        height: calc(calc(100vw - 48px) / 2);
-    }
+  .team-member {
+    width: 46%;
+    height: calc(calc(100vw - 48px) / 2);
+  }
 }
 
 /* width = 450px or less */
 @media (max-width: 450px) {
-    #about-who-description {
-        width: 90%;
-    }
+  #about-who-description {
+    width: 90%;
+  }
 
-    .team-member {
-        width: 100%;
-        height: calc(100vw - 48px);
-    }
+  .team-member {
+    width: 100%;
+    height: calc(100vw - 48px);
+  }
 }

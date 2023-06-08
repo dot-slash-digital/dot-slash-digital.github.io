@@ -3,133 +3,140 @@
 /* --------------------------------------------------------------- */
 
 #work-section {
-    background-color: #f4f4f4;
-    width: 100%;
-    padding: 120px 0;
+  background-color: #f4f4f4;
+  width: 100%;
+  padding: 120px 0;
 }
 
 .work-title {
-    font-size: 48px;
-    line-height: 1;
-    text-align: left;
+  font-size: 48px;
+  line-height: 1;
+  text-align: left;
 }
 
 .work-summary {
-    font-size: 24px;
-    line-height: 1;
-    margin: 10px 0 50px 0;
-    text-align: left;
+  font-size: 24px;
+  line-height: 1;
+  margin: 10px 0 50px 0;
+  text-align: left;
 }
 
 /* -------------------------- Project 1 -------------------------- */
 
 #work-1 {
-    width: 100%;
-    padding: 60px 24px;
-    transition: 0.5s all;
-    clear: both;
-    overflow: auto;
+  width: 100%;
+  padding: 60px 24px;
+  transition: 0.5s all;
+  clear: both;
+  overflow: auto;
 }
 
 /* width = 1200px or larger */
 @media (min-width: 1200px) {
-    #work-1 {
-        padding: 60px calc(24px + 112px);
-    }
+  #work-1 {
+    padding: 60px calc(24px + 112px);
+  }
 }
 
 #work-1-text {
-    width: 38%;
-    float: left;
-    padding-top: 50px;
-    padding-right: 2%;
+  width: 38%;
+  float: left;
+  padding-top: 50px;
+  padding-right: 2%;
 }
 
 #work-1-mockup {
-    width: 60%;
-    float: right;
+  width: 60%;
+  float: right;
 }
 
 /* -------------------------- Project 2 -------------------------- */
 
 #work-2 {
-    width: 100%;
-    padding: 60px 24px;
-    transition: 0.5s all;
-    clear: both;
-    overflow: auto;
+  width: 100%;
+  padding: 60px 24px;
+  transition: 0.5s all;
+  clear: both;
+  overflow: auto;
 }
 
 /* width = 1200px or larger */
 @media (min-width: 1200px) {
-    #work-2 {
-        padding: 60px calc(24px + 112px);
-    }
+  #work-2 {
+    padding: 60px calc(24px + 112px);
+  }
 }
 
 #work-2-text {
-    width: 38%;
-    float: right;
-    padding-top: 50px;
-    padding-left: 2%;
+  width: 38%;
+  float: right;
+  padding-top: 50px;
+  padding-left: 2%;
 }
 
 #work-2-mockup {
-    width: 60%;
-    float: left;
+  width: 60%;
+  float: left;
 }
 
 /* ---------------------- View All Projects ---------------------- */
 
 #work-view {
-    margin: 60px 0;
-    text-align: center;
-    clear: both;
+  margin: 60px 0;
+  text-align: center;
+  clear: both;
 }
 
 /* width = 1095px or less */
 @media (max-width: 1095px) {
-    #work-1-text, #work-2-text {
-        padding-top: 0;
-    }
+  #work-1-text,
+  #work-2-text {
+    padding-top: 0;
+  }
 }
 
 /* width = 870px or less */
 @media (max-width: 870px) {
-    #work-1-mockup, #work-2-mockup, .work-title, .work-summary {
-        width: 90%;
-        margin: 0 5%;
-    }
-    
-    #work-1-text, #work-2-text {
-        width: 100%;
-        padding: 30px 0 0 0;
-    }
-    
-    #work-1-text, #work-2-text, .work-title {
-        text-align: center;
-    }
-    
-    .work-summary {
-        width: 65%;
-        margin: 5px auto 40px auto;
-        text-align: center;
-    }
-    
-    .work-button {
-        float: none;
-    }
+  #work-1-mockup,
+  #work-2-mockup,
+  .work-title,
+  .work-summary {
+    width: 90%;
+    margin: 0 5%;
+  }
+
+  #work-1-text,
+  #work-2-text {
+    width: 100%;
+    padding: 30px 0 0 0;
+  }
+
+  #work-1-text,
+  #work-2-text,
+  .work-title {
+    text-align: center;
+  }
+
+  .work-summary {
+    width: 65%;
+    margin: 5px auto 40px auto;
+    text-align: center;
+  }
+
+  .work-button {
+    float: none;
+  }
 }
 
 /* width = 590px or less */
 @media (max-width: 590px) {
-    .work-title {
-        font-size: 36px;
-    }
-    
-    .work-summary {
-        font-size: 18px;
-    }
+  .work-title {
+    font-size: 36px;
+  }
+
+  .work-summary {
+    font-size: 18px;
+  }
 }
 
 /* --------------------------------------------------------------- */
@@ -137,124 +144,124 @@
 /* --------------------------------------------------------------- */
 
 #services-section {
-    background-color: #f0f0f0;
-    width: 100%;
-    padding: 120px 24px;
-    transition: 0.5s all;
+  background-color: #f0f0f0;
+  width: 100%;
+  padding: 120px 24px;
+  transition: 0.5s all;
 }
 
 /* width = 1200px or larger */
 @media (min-width: 1200px) {
-    #services-section {
-        padding: 120px calc(24px + 112px);
-    }
+  #services-section {
+    padding: 120px calc(24px + 112px);
+  }
 }
 
 /* ----------------------- Services Text ------------------------- */
 
 #services-text {
-    width: 35%;
-    margin-right: 5%;
-    padding-bottom: 25px;
-    float: left;
+  width: 35%;
+  margin-right: 5%;
+  padding-bottom: 25px;
+  float: left;
 }
 
 #services-title {
-    font-size: 72px;
-    line-height: 1;
+  font-size: 72px;
+  line-height: 1;
 }
 
 #services-summary {
-    font-size: 24px;
-    line-height: 1;
-    margin: 10px 0 50px 0;
+  font-size: 24px;
+  line-height: 1;
+  margin: 10px 0 50px 0;
 }
 
 /* ----------------------- Services List ------------------------- */
 
 #services-list {
-    width: 60%;
-    float: right;
+  width: 60%;
+  float: right;
 }
 
 .services-col {
-    float: left;
-    width: 25%;
+  float: left;
+  width: 25%;
 }
 
 .services-col span {
-    padding-bottom: 5px;
+  padding-bottom: 5px;
 }
 
 .services-col ul {
-    font-size: 16px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  font-size: 16px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .services-col ul li {
-    font-size: 14px;
-    text-align: left;
-    margin: 0;
+  font-size: 14px;
+  text-align: left;
+  margin: 0;
 }
 
 /* ---------------------- View All Services ---------------------- */
 
 #services-view {
-    padding: 15px 0;
-    text-align: center;
-    clear: both;
+  padding: 15px 0;
+  text-align: center;
+  clear: both;
 }
 
 /* width = 1080px or less */
 @media (max-width: 1080px) {
-    #services-text {
-        width: 90%;
-        margin: 0 5%;
-        float: none;
-    }
-    
-    #services-title {
-        text-align: center;
-    }
-    
-    #services-summary {
-        width: 90%;
-        margin: 10px auto;
-        text-align: center;
-    }
-    
-    #services-list {
-        width: 90%;
-        margin: 0 5%;
-        text-align: center;
-    }
-    
-    .services-col ul li {
-        text-align: center;
-    }
-    
-    #services-view {
-        padding: 45px 0;
-    }
+  #services-text {
+    width: 90%;
+    margin: 0 5%;
+    float: none;
+  }
+
+  #services-title {
+    text-align: center;
+  }
+
+  #services-summary {
+    width: 90%;
+    margin: 10px auto;
+    text-align: center;
+  }
+
+  #services-list {
+    width: 90%;
+    margin: 0 5%;
+    text-align: center;
+  }
+
+  .services-col ul li {
+    text-align: center;
+  }
+
+  #services-view {
+    padding: 45px 0;
+  }
 }
 
 /* width = 740px or less */
 @media (max-width: 740px) {
-    .services-col {
-        width: 50%;
-        margin-bottom: 15px;
-    }
+  .services-col {
+    width: 50%;
+    margin-bottom: 15px;
+  }
 }
 
 /* width = 350px or less */
 @media (max-width: 350px) {
-    .services-col {
-        width: 100%;
-    }
-    
-    .services-col ul {
-        display: none;
-    }
+  .services-col {
+    width: 100%;
+  }
+
+  .services-col ul {
+    display: none;
+  }
 }
