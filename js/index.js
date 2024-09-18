@@ -11,6 +11,7 @@ const all_team_members = [
   "jino",
   "jazmin",
   "drew",
+  "joseph",
 ];
 
 /*
