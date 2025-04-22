@@ -1,0 +1,92 @@
+body {
+  margin: 0;
+  padding: 24px;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.section {
+  width: 100%;
+  border-radius: 24px;
+}
+
+/* MAIN */
+
+#main {
+  background-color: #141414;
+  height: calc(100dvh - 48px);
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+
+#main .block {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  outline: 1px solid white;
+}
+
+#letter-measurement {
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: flex;
+}
+
+#letter-measurement span,
+#main .block span {
+  font-family: monospace;
+  font-size: 12px;
+  line-height: 1.1;
+  color: transparent;
+}
+
+/* FOOTER */
+
+#footer {
+  width: calc(100% - 48px);
+  background-color: #141414;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px;
+}
+
+#footer .right-col {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+#footer .description {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+#footer .right-col .avatars {
+  display: flex;
+  align-items: center;
+}
+
+#footer .right-col .avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+#footer .right-col .avatar:not(:first-child) {
+  margin-left: -8px;
+}
+
+#footer span {
+  color: white;
+  font-size: 20px;
+}
