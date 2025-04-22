@@ -1,7 +1,11 @@
 body {
   margin: 0;
-  padding: 24px;
   background-color: black;
+}
+
+#page-container {
+  width: calc(100% - 24px - 24px);
+  padding: 24px;
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -89,4 +93,31 @@ body {
 #footer span {
   color: white;
   font-size: 20px;
+}
+
+/* BOUNCING LOGO */
+
+#bouncing-logo {
+  --x: 0;
+  --y: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 100px;
+  will-change: transform;
+  transform: translate3d(calc(var(--x) * 1px), calc(var(--y) * 1px), 0);
+  z-index: 1;
+}
+
+#bouncing-logo .image {
+  width: 100%;
+  height: 100%;
+  background-color: green;
+  transform: scale(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+#bouncing-logo.ready .image {
+  transform: scale(1);
 }
