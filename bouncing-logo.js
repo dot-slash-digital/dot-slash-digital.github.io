@@ -82,6 +82,6 @@ class BouncingLogo {
 
 document.addEventListener("DOMContentLoaded", () => {
   const logo = new BouncingLogo("bouncing-logo");
-  window.addEventListener("resize", logo.updateViewport);
+  window.addEventListener("resize", () => logo.updateViewport());
   logo.startAnimation();
 });
