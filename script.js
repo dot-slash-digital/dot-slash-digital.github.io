@@ -3,10 +3,6 @@ const main = document.getElementById("main");
 // percentage of the cursor's position relative to the bounds of main
 const mainCursorPos = { x: 0, y: 0 };
 
-const setStyles = (element, stylesObj) => {
-  return Object.assign(element.style, stylesObj);
-};
-
 // TODO: add group for mobile breakpoint
 const getGroups = () => {
   const desktopBreakpoint = [
