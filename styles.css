@@ -121,3 +121,19 @@ body {
 #bouncing-logo.ready .image {
   transform: scale(1);
 }
+
+/* TEXT STRETCHING */
+
+#email {
+  position: relative;
+  display: block;
+  height: 20px;
+  font-family: monospace;
+}
+
+#email span {
+  position: absolute;
+  display: inline-block;
+  transform-origin: left center;
+  transition: 0.05s transform;
+}

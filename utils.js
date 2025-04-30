@@ -14,3 +14,10 @@ const getBoundedValue = (value, bounds) => {
 const setStyles = (element, stylesObj) => {
   return Object.assign(element.style, stylesObj);
 };
+
+const sum = (values) => {
+  return values.reduce((total, currentValue) => total + currentValue, 0);
+};
+
+const range = (end, start = 0) =>
+  [...Array(end).keys()].filter((num) => num >= start);
