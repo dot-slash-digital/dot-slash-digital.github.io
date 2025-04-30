@@ -1,3 +1,10 @@
+@font-face {
+  font-family: "Geist Mono";
+  font-weight: 100 900;
+  font-style: normal;
+  src: url("geist-mono-variable.ttf") format("truetype");
+}
+
 body {
   margin: 0;
   background-color: black;
@@ -128,7 +135,7 @@ body {
   position: relative;
   display: block;
   height: 20px;
-  font-family: monospace;
+  font-family: "Geist Mono", monospace;
 }
 
 #email span {
@@ -136,4 +143,5 @@ body {
   display: inline-block;
   transform-origin: left center;
   transition: 0.05s transform;
+  font-weight: 600;
 }
