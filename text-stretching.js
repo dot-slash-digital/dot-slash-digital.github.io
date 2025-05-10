@@ -4,7 +4,6 @@ const MAX_FONT_WEIGHT = 900;
 const DEFAULT_FONT_WEIGHT = 500;
 
 const splitLetters = (element) => {
-  const { width } = element.getBoundingClientRect();
   const elementText = element.textContent || "";
   const letters = elementText.split("");
 
@@ -14,12 +13,7 @@ const splitLetters = (element) => {
     const letterElement = document.createElement("span");
     letterElement.textContent = letter;
     element.appendChild(letterElement);
-    letterElement.setAttribute(
-      INIT_WIDTH_ATTRIBUTE,
-      letterElement.getBoundingClientRect().width
-    );
   });
-  setStyles(element, { width: `${width}px` });
 };
 
 const isWithinElement = (cursorX, cursorY, element) => {
@@ -32,27 +26,12 @@ const isWithinElement = (cursorX, cursorY, element) => {
   );
 };
 
-const setTransform = (
-  element,
-  { fontWeight, xPosition, yPosition, xScale, yScale } = {}
-) => {
+const setFontWeight = (element, fontWeight) => {
   setStyles(element, {
     fontWeight: getBoundedValue(fontWeight ?? DEFAULT_FONT_WEIGHT, [
       MIN_FONT_WEIGHT,
       MAX_FONT_WEIGHT,
     ]),
-    transform: `translate3d(${xPosition ?? 0}px, ${
-      yPosition ?? 0
-    }px, 0px) scale(${xScale ?? 1}, ${yScale ?? 1})`,
-  });
-};
-
-const setInitLetterPositions = (letterElements) => {
-  const prevLetterElementWidths = [];
-  letterElements.forEach((letterElement) => {
-    const prevWidthsTotal = sum(prevLetterElementWidths);
-    setTransform(letterElement, { xPosition: prevWidthsTotal });
-    prevLetterElementWidths.push(letterElement.getBoundingClientRect().width);
   });
 };
 
@@ -79,12 +58,15 @@ const getScaleValue = (
   };
 };
 
-const onMouseMoveEmailText = (event, element) => {
+const onTextStretchingMouseMove = (event, element) => {
   const { clientX: cursorX, clientY: cursorY } = event;
   const letterElements = [...element.childNodes];
 
+  // reset font weights if cursor is outside the element
   if (!isWithinElement(cursorX, cursorY, element)) {
-    setInitLetterPositions(letterElements);
+    letterElements.forEach((letterElement) => {
+      setFontWeight(letterElement, DEFAULT_FONT_WEIGHT);
+    });
     return;
   }
 
@@ -93,14 +75,11 @@ const onMouseMoveEmailText = (event, element) => {
   );
   const hoveredLetterElement = letterElements[hoveredLetterIndex];
 
-  const transformations = range(letterElements.length).map((_) => ({}));
+  const fontWeights = range(letterElements.length).map((_) => undefined);
 
   // add scaling to hovered letter and surrounding letters
   if (hoveredLetterElement) {
-    const { scale: hoveredLetterXScale, percentageDistanceFromElementCenter } =
-      getScaleValue(hoveredLetterElement, cursorX, 2, undefined, 0.3);
-    transformations[hoveredLetterIndex].xScale = hoveredLetterXScale;
-    transformations[hoveredLetterIndex].fontWeight = MAX_FONT_WEIGHT;
+    fontWeights[hoveredLetterIndex] = MAX_FONT_WEIGHT;
 
     const leftLetters = [];
     const rightLetters = [];
@@ -114,74 +93,43 @@ const onMouseMoveEmailText = (event, element) => {
     });
 
     // add scaling to letters left of hovered
-    leftLetters.forEach(({ element, index: letterIndex }, listIndex) => {
+    leftLetters.forEach(({ index: letterIndex }, listIndex) => {
       const fontWeight =
         MAX_FONT_WEIGHT -
         Math.round(
           ((listIndex + 1) / (letterElements.length / 2)) *
             (MAX_FONT_WEIGHT - MIN_FONT_WEIGHT)
         );
-      const { scale } = getScaleValue(
-        element,
-        cursorX,
-        2 - (listIndex + 1) * 0.1,
-        percentageDistanceFromElementCenter,
-        percentageDistanceFromElementCenter < 0 ? 0.3 : 0
-      );
 
-      transformations[letterIndex].fontWeight = fontWeight;
-      transformations[letterIndex].xScale = scale;
+      fontWeights[letterIndex] = fontWeight;
     });
 
     // add scaling to letters right of hovered
-    rightLetters.forEach(({ element, index: letterIndex }, listIndex) => {
+    rightLetters.forEach(({ index: letterIndex }, listIndex) => {
       const fontWeight =
         MAX_FONT_WEIGHT -
         Math.round(
           ((listIndex + 1) / (letterElements.length / 2)) *
             (MAX_FONT_WEIGHT - MIN_FONT_WEIGHT)
         );
-      const { scale } = getScaleValue(
-        element,
-        cursorX,
-        2 - (listIndex + 1) * 0.1,
-        percentageDistanceFromElementCenter,
-        percentageDistanceFromElementCenter > 0 ? 0.3 : 0
-      );
 
-      transformations[letterIndex].fontWeight = fontWeight;
-      transformations[letterIndex].xScale = scale;
+      fontWeights[letterIndex] = fontWeight;
     });
   }
 
-  // calculate letter positions
-  letterElements.forEach((letterElement, index) => {
-    const prevLetterElementWidths = transformations.map(
-      (transformation) => transformation.width ?? 0
-    );
-
-    transformations[index].width = letterElement.getBoundingClientRect().width;
-    transformations[index].xPosition = sum(prevLetterElementWidths);
-  });
-
-  // apply transformations for each letter
-  transformations.forEach((transformation, index) => {
-    const letterElement = letterElements[index];
-
-    setTransform(letterElement, {
-      fontWeight: transformation.fontWeight,
-      xPosition: transformation.xPosition,
-      xScale: transformation.xScale,
-    });
+  // apply font weight transformations for each letter
+  fontWeights.forEach((fontWeight, index) => {
+    setFontWeight(letterElements[index], fontWeight);
   });
 };
 
 const textStretchingInit = () => {
   const element = document.getElementById("email");
   splitLetters(element);
-  setInitLetterPositions([...element.childNodes]);
 
-  window.addEventListener("mousemove", (e) => onMouseMoveEmailText(e, element));
+  window.addEventListener("mousemove", (e) =>
+    onTextStretchingMouseMove(e, element)
+  );
 };
 
 // wait until fonts are all loaded
