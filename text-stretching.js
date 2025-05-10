@@ -1,7 +1,7 @@
 const INIT_WIDTH_ATTRIBUTE = "data-init-width";
 const MIN_FONT_WEIGHT = 100;
 const MAX_FONT_WEIGHT = 900;
-const DEFAULT_FONT_WEIGHT = 600;
+const DEFAULT_FONT_WEIGHT = 500;
 
 const splitLetters = (element) => {
   const { width } = element.getBoundingClientRect();
@@ -95,7 +95,7 @@ const onMouseMoveEmailText = (event, element) => {
 
   const transformations = range(letterElements.length).map((_) => ({}));
 
-  // add scaling to hovered letter
+  // add scaling to hovered letter and surrounding letters
   if (hoveredLetterElement) {
     const { scale: hoveredLetterXScale, percentageDistanceFromElementCenter } =
       getScaleValue(hoveredLetterElement, cursorX, 2, undefined, 0.3);
@@ -113,7 +113,7 @@ const onMouseMoveEmailText = (event, element) => {
       }
     });
 
-    // add scaling to letter left of hovered
+    // add scaling to letters left of hovered
     leftLetters.forEach(({ element, index: letterIndex }, listIndex) => {
       const fontWeight =
         MAX_FONT_WEIGHT -
@@ -133,7 +133,7 @@ const onMouseMoveEmailText = (event, element) => {
       transformations[letterIndex].xScale = scale;
     });
 
-    // add scaling to letter right of hovered
+    // add scaling to letters right of hovered
     rightLetters.forEach(({ element, index: letterIndex }, listIndex) => {
       const fontWeight =
         MAX_FONT_WEIGHT -
