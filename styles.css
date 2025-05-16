@@ -8,6 +8,7 @@
 body {
   margin: 0;
   background-color: black;
+  --transition-speed: 0.2s;
 }
 
 #page-container {
@@ -60,12 +61,25 @@ body {
 /* FOOTER */
 
 #footer {
+  --hover-scale: 1.25;
+  --hover-translate: 4px;
   width: calc(100% - 48px);
   background-color: #141414;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 24px;
+}
+
+#footer span {
+  color: white;
+  font-size: 20px;
+  font-family: "Geist Mono", monospace;
+  font-weight: 500;
+}
+
+#footer #email {
+  cursor: pointer;
 }
 
 #footer .right-col {
@@ -80,32 +94,87 @@ body {
   gap: 12px;
 }
 
+#footer .right-col .text-left,
+#footer .right-col .text-right {
+  transition: var(--transition-speed) transform ease;
+  transform: scale(1) translateX(0px);
+}
+
 #footer .right-col .avatars {
   display: flex;
   align-items: center;
 }
 
 #footer .right-col .avatar {
+  position: relative;
+  display: flex;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+#footer .right-col .avatar:last-child {
+  margin-left: -8px;
+}
+
+#footer .right-col .avatar img {
   width: 24px;
   height: 24px;
   border-radius: 50%;
   object-fit: cover;
   object-position: center center;
-  cursor: pointer;
+  background-color: green;
+  box-sizing: border-box;
+  border: 2px white solid;
+  transition: var(--transition-speed) transform ease;
+  transform: scale(1) translateX(0px);
+  pointer-events: none;
 }
 
-#footer .right-col .avatar:not(:first-child) {
-  margin-left: -8px;
+#footer .right-col .avatar .tooltip {
+  --tooltip-bg-color: #313131;
+  --tooltip-y-pos: 0px;
+  --tooltip-scale: 0.5;
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translate(-50%, var(--tooltip-y-pos)) scale(var(--tooltip-scale));
+  transform-origin: bottom center;
+  background-color: var(--tooltip-bg-color);
+  padding: 12px 16px;
+  border-radius: 6px;
+  white-space: nowrap;
+  visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  transition: opacity var(--transition-speed) ease,
+    transform var(--transition-speed) ease;
+  pointer-events: none;
+  z-index: 1;
 }
 
-#footer span {
+#footer .right-col .avatar .tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: var(--tooltip-bg-color) transparent transparent transparent;
+}
+
+#footer .right-col .avatar .tooltip .name {
   color: white;
-  font-size: 20px;
-  font-family: "Geist Mono", monospace;
+  font-size: 16px;
+  font-weight: 700;
 }
 
-#footer #email {
-  cursor: pointer;
+#footer .right-col .avatar .tooltip .title {
+  color: #d2d2d2;
+  font-size: 14px;
+  font-weight: 500;
 }
 
 /* BOUNCING LOGO */
