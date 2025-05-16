@@ -1,6 +1,10 @@
-const avatars = [...document.querySelectorAll("#footer .avatar")];
+let avatars = [...document.querySelectorAll("#footer .avatar")];
 const textLeft = document.querySelector("#footer .right-col .text-left");
 const textRight = document.querySelector("#footer .right-col .text-right");
+
+const transitionSpeed = convertSecondsToMilliseconds(
+  getCssVar(document.body, "--transition-speed")
+);
 
 const getAvatar = (avatarIndex) => {
   const avatar = avatars[avatarIndex];
@@ -63,10 +67,29 @@ const onMouseOutAvatar = (avatarIndex) => {
   // wait until opacity animation ends
   setTimeout(() => {
     setStyles(tooltip, { visibility: "hidden" });
-  }, 200);
+  }, transitionSpeed);
+};
+
+const setRandomAvatarOrder = () => {
+  const shouldSwapAvatars = Math.random() > 0.5;
+  if (shouldSwapAvatars) {
+    // swap elements
+    const parent = avatars[0].parentNode;
+    const nextSibling =
+      avatars[0].nextSibling === avatars[1]
+        ? avatars[0]
+        : avatars[0].nextSibling;
+    parent.insertBefore(avatars[0], avatars[1]);
+    parent.insertBefore(avatars[1], nextSibling);
+
+    // recalculate avatars list to use the new order
+    avatars = [...document.querySelectorAll("#footer .avatar")];
+  }
 };
 
 const avatarInteractivityInit = () => {
+  setRandomAvatarOrder();
+
   avatars.forEach((avatar, index) => {
     avatar.addEventListener("mouseover", () => onMouseOverAvatar(index));
     avatar.addEventListener("mouseout", () => onMouseOutAvatar(index));

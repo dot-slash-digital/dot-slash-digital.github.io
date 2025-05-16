@@ -22,7 +22,7 @@ const setCssVars = (element, varToValueMap) => {
 };
 
 const getCssVar = (element, varName) => {
-  return element.style.getPropertyValue(varName);
+  return getComputedStyle(element).getPropertyValue(varName);
 };
 
 const sum = (values) => {
@@ -31,3 +31,9 @@ const sum = (values) => {
 
 const range = (end, start = 0) =>
   [...Array(end).keys()].filter((num) => num >= start);
+
+// e.g. secondsStr = "0.2s"
+const convertSecondsToMilliseconds = (secondsStr) => {
+  const seconds = parseFloat(secondsStr);
+  return seconds * 1000;
+};
