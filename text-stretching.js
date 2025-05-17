@@ -2,6 +2,7 @@ const INIT_WIDTH_ATTRIBUTE = "data-init-width";
 const MIN_FONT_WEIGHT = 100;
 const MAX_FONT_WEIGHT = 900;
 const DEFAULT_FONT_WEIGHT = 500;
+let isAnimating = false;
 
 const splitLetters = (element) => {
   const elementText = element.textContent || "";
@@ -58,15 +59,18 @@ const getScaleValue = (
   };
 };
 
-const onTextStretchingMouseMove = (event, element) => {
+const resetFontWeights = (letterElements) => {
+  letterElements.forEach((letterElement) => {
+    setFontWeight(letterElement, DEFAULT_FONT_WEIGHT);
+  });
+};
+
+const onTextStretchingMouseMove = (event, element, letterElements) => {
   const { clientX: cursorX, clientY: cursorY } = event;
-  const letterElements = [...element.childNodes];
 
   // reset font weights if cursor is outside the element
-  if (!isWithinElement(cursorX, cursorY, element)) {
-    letterElements.forEach((letterElement) => {
-      setFontWeight(letterElement, DEFAULT_FONT_WEIGHT);
-    });
+  if (!isWithinElement(cursorX, cursorY, element) || isAnimating) {
+    resetFontWeights(letterElements);
     return;
   }
 
@@ -123,14 +127,67 @@ const onTextStretchingMouseMove = (event, element) => {
   });
 };
 
-const textStretchingInit = () => {
-  const element = document.getElementById("email");
+const textStretchingInit = (element) => {
   splitLetters(element);
+  const letterElements = [...element.childNodes];
 
   window.addEventListener("mousemove", (e) =>
-    onTextStretchingMouseMove(e, element)
+    onTextStretchingMouseMove(e, element, letterElements)
   );
 };
 
+const alphabet = "abcdefghijklmnopqrstuvwxyz!@#$%&?";
+const originalEmailText = "hi@dotslashdigital.com";
+const linkCopiedText = "---  link copied!  ---";
+
+const getRandomChar = () => {
+  const index = Math.floor(Math.random() * alphabet.length);
+  return alphabet[index];
+};
+
+const onEmailLinkClick = async (element) => {
+  if (isAnimating) {
+    return;
+  }
+
+  const letterElements = [...element.childNodes];
+  isAnimating = true;
+
+  resetFontWeights(letterElements);
+
+  for (const i of range(6)) {
+    letterElements.forEach((letterElement) => {
+      letterElement.textContent = getRandomChar();
+    });
+    await wait(0.1);
+  }
+
+  letterElements.forEach((letterElement, index) => {
+    letterElement.textContent = linkCopiedText[index];
+  });
+
+  // copy to clipboard
+  await navigator.clipboard.writeText(originalEmailText);
+  await wait(2);
+
+  for (const i of range(3)) {
+    letterElements.forEach((letterElement) => {
+      letterElement.textContent = getRandomChar();
+    });
+    await wait(0.1);
+  }
+
+  letterElements.forEach((letterElement, index) => {
+    letterElement.textContent = originalEmailText[index];
+  });
+
+  isAnimating = false;
+};
+
 // wait until fonts are all loaded
-document.fonts.ready.then(() => textStretchingInit());
+document.fonts.ready.then(() => {
+  const element = document.getElementById("email");
+
+  textStretchingInit(element);
+  element.addEventListener("click", () => onEmailLinkClick(element));
+});
