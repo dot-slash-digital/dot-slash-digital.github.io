@@ -2,7 +2,16 @@
   font-family: "Geist Mono";
   font-weight: 100 900;
   font-style: normal;
-  src: url("geist-mono-variable.ttf") format("truetype");
+  font-display: swap;
+  src: url("./geist-mono-variable.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Nickel Gothic";
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+  src: url("./nickel-gothic-variable-trial.ttf") format("truetype");
 }
 
 body {
@@ -28,10 +37,13 @@ body {
 
 #main {
   --scroll-amount: 0px;
+  --visual-scale-y-top: 1.52;
+  --visual-scale-y-bottom: 1.495;
   background-color: #141414;
   height: calc(100dvh - 48px - var(--scroll-amount));
   display: flex;
   flex-wrap: wrap;
+  align-items: flex-start;
   overflow: hidden;
   position: fixed;
   top: 24px;
@@ -39,28 +51,37 @@ body {
   width: calc(100% - 48px);
 }
 
-#main .block {
+#main .text-pressure-title.visual {
   display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  outline: 1px solid white;
-}
-
-#letter-measurement {
-  visibility: hidden;
+  justify-content: center;
+  margin: 0;
+  text-align: center;
+  user-select: none;
+  white-space: nowrap;
+  width: 100%;
+  transform-origin: center top;
   position: absolute;
   top: 0;
-  left: 0;
-  z-index: 1;
+}
+
+#main .text-pressure-title.calc {
+  visibility: hidden;
+  position: absolute;
   display: flex;
 }
 
-#letter-measurement span,
-#main .block span {
-  font-family: monospace;
-  font-size: 12px;
-  line-height: 1.1;
-  color: transparent;
+#main .text-pressure-title span {
+  text-transform: uppercase;
+  color: white;
+  font-family: "Nickel Gothic", monospace;
+  font-size: inherit;
+  font-weight: 500;
+  line-height: 1;
+  font-variation-settings: "wdth" 100;
+}
+
+#main .text-pressure-title.visual span {
+  transform: translate(0px, 19px) scale(1, 1.35);
 }
 
 /* FOOTER */

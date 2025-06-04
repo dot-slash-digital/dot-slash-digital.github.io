@@ -1,13 +1,20 @@
 const wait = async (seconds) =>
   new Promise((_) => setTimeout(_, seconds * 1000));
 
-const isOutsideBounds = (value, bounds) => {
-  const [min, max] = bounds;
+const isOutsideBounds = (value, [min, max]) => {
   return value < min || value > max;
 };
 
-const getBoundedValue = (value, bounds) => {
-  const [min, max] = bounds;
+const isOutsideElementBounds = (elementBoundsRect, { x, y }) => {
+  const isTooFarLeft = x < elementBoundsRect.left;
+  const isTooFarRight = x > elementBoundsRect.right;
+  const isTooFarTop = y < elementBoundsRect.top;
+  const isTooFarBottom = y > elementBoundsRect.bottom;
+
+  return isTooFarLeft || isTooFarRight || isTooFarTop || isTooFarBottom;
+};
+
+const getBoundedValue = (value, [min, max]) => {
   return Math.max(min, Math.min(value, max));
 };
 
@@ -36,4 +43,15 @@ const range = (end, start = 0) =>
 const convertSecondsToMilliseconds = (secondsStr) => {
   const seconds = parseFloat(secondsStr);
   return seconds * 1000;
+};
+
+const roundToDecimalPlace = (value, numPlaces) => {
+  return (
+    Math.round((value + Number.EPSILON) * Math.pow(10, numPlaces)) /
+    Math.pow(10, numPlaces)
+  );
+};
+
+const getPercentageInRangeFromValue = (value, [start, end]) => {
+  return (value - start) / (end - start);
 };
