@@ -80,8 +80,17 @@ body {
   font-variation-settings: "wdth" 100;
 }
 
-#main .text-pressure-title.visual span {
-  transform: translate(0px, 19px) scale(1, 1.35);
+#main span {
+  text-box: trim-both cap alphabetic;
+}
+
+#main .text-pressure-title.visual.top span[data-char="D"],
+#main .text-pressure-title.visual.bottom span[data-char="D"] {
+  transform: scale(1.14, 1) translate(-2.5%, 0px);
+}
+#main .text-pressure-title.visual.top span[data-char="H"],
+#main .text-pressure-title.visual.bottom span[data-char="L"] {
+  transform: scale(1.09, 1);
 }
 
 /* FOOTER */

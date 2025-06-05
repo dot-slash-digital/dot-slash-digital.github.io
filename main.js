@@ -1,5 +1,9 @@
 const MIN_FONT_SIZE = 24;
 const CURSOR_PRECISION = 5;
+const GAP = 8;
+const GRADUAL_SPEED = 25;
+const MIN_WDTH = 25;
+const MAX_WDTH = 150;
 const startTime = Date.now();
 
 const getElements = (type) => {
@@ -46,15 +50,17 @@ const initTextPressure = (type) => {
   } = getElements(type);
   let sectionRect = main.getBoundingClientRect();
 
+  console.log(sectionRect);
   const mouse = {
-    x: sectionRect.x,
-    y: sectionRect.y,
+    x: sectionRect.width / 2,
+    y: sectionRect.height / 2,
   };
   const cursor = {
-    x: sectionRect.x,
-    y: sectionRect.y,
-    isOutside: true,
+    x: sectionRect.width / 2,
+    y: sectionRect.height / 2,
+    isOutside: false,
   };
+  const charWdths = charSpans.map((span) => 100);
 
   window.addEventListener("mousemove", (e) => {
     const isOutside = isOutsideElementBounds(sectionRect, {
@@ -114,12 +120,14 @@ const initTextPressure = (type) => {
       const centerX = rect.x + rect.width / 2;
       const distX = centerX - mouse.x;
 
-      const wdth = getWdthVariation(
-        maxDist.x,
-        cursor.isOutside ? maxDist.x : distX,
-        25,
-        150
-      );
+      const prevWdth = charWdths[index];
+      const wdthDifference = prevWdth - MIN_WDTH;
+
+      const wdth = cursor.isOutside
+        ? Math.max(prevWdth - wdthDifference / GRADUAL_SPEED, MIN_WDTH)
+        : getWdthVariation(maxDist.x, distX, MIN_WDTH, MAX_WDTH);
+
+      charWdths[index] = wdth;
       setStyles(charSpan, { fontVariationSettings: `'wdth' ${wdth}` });
       setStyles(calcCharSpans[index], {
         fontVariationSettings: `'wdth' ${wdth}`,
@@ -132,11 +140,20 @@ const initTextPressure = (type) => {
     const scaleX = sectionRect.width / wdthVariationTotal;
 
     if (cursor.isOutside) {
-      const translateY = type === "top" ? 0 : sectionRect.height * 0.5;
+      const topElement = document.querySelector(
+        `.text-pressure-title.top.visual`
+      );
+      const topElementHeight = topElement.getBoundingClientRect().height;
+
+      const topTargetHeight = sectionRect.height * 0.5 - GAP;
+      const topGradualDifference =
+        (topElementHeight - topTargetHeight) / GRADUAL_SPEED;
+      const topNewHeight = topElementHeight - topGradualDifference;
       const scaleY = getScale(
         calcContainer.getBoundingClientRect().height,
-        sectionRect.height * 0.5
+        type === "top" ? topNewHeight : sectionRect.height - topNewHeight - GAP
       );
+      const translateY = type === "top" ? 0 : topNewHeight + GAP;
       setStyles(visualContainer, {
         transform: `translate(0px, ${translateY}px) scale(${scaleX}, ${scaleY})`,
       });
@@ -166,10 +183,12 @@ const initTextPressure = (type) => {
       const topElementHeight = topElement.getBoundingClientRect().height;
       const scaleY = getScale(
         calcContainer.getBoundingClientRect().height,
-        sectionRect.height - topElementHeight
+        sectionRect.height - topElementHeight - GAP
       );
       setStyles(visualContainer, {
-        transform: `translate(0px, ${topElementHeight}px) scale(${scaleX}, ${scaleY})`,
+        transform: `translate(0px, ${
+          topElementHeight + GAP
+        }px) scale(${scaleX}, ${scaleY})`,
       });
     }
 
@@ -180,6 +199,11 @@ const initTextPressure = (type) => {
   document.addEventListener("scroll", setSize);
   setSize();
   animate();
+};
+
+// scroll to top on page load
+window.onbeforeunload = function () {
+  window.scrollTo(0, 0);
 };
 
 // wait until all fonts have been loaded
