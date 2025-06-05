@@ -32,7 +32,7 @@ const getWdthVariation = (maxDist, distance, minVal, maxVal) => {
 };
 
 const getScale = (oldValue, newValue) => {
-  return oldValue / newValue;
+  return newValue / oldValue;
 };
 
 const initTextPressure = (type) => {
@@ -131,30 +131,42 @@ const initTextPressure = (type) => {
     );
     const scaleX = sectionRect.width / wdthVariationTotal;
 
-    if (type === "top") {
+    if (cursor.isOutside) {
+      const translateY = type === "top" ? 0 : sectionRect.height * 0.5;
+      const scaleY = getScale(
+        calcContainer.getBoundingClientRect().height,
+        sectionRect.height * 0.5
+      );
+      setStyles(visualContainer, {
+        transform: `translate(0px, ${translateY}px) scale(${scaleX}, ${scaleY})`,
+      });
+    } else if (type === "top") {
       const yPos =
         getBoundedValue(mouse.y, [sectionRect.top, sectionRect.bottom]) -
         sectionRect.top;
-      const yPosPerc = yPos / sectionRect.height;
-      const abc = Math.sqrt(1 - yPosPerc) * 0.8 + 0.1;
-      const yPercPx = abc * sectionRect.height;
 
-      const scaleY = getScale(
-        yPercPx,
-        calcContainer.getBoundingClientRect().height
+      const yPosPercFromCenter =
+        (yPos - sectionRect.height / 2) / (sectionRect.height / 2);
+      const scaledYPosPx =
+        sectionRect.height / 2 +
+        yPosPercFromCenter * 0.8 * (sectionRect.height / 2);
+
+      const initScaleY = getScale(
+        calcContainer.getBoundingClientRect().height,
+        sectionRect.height * 0.5
       );
+      const scaleY = getScale(sectionRect.height * 0.5, scaledYPosPx);
       setStyles(visualContainer, {
-        transform: `translate(0px, 0px) scale(${scaleX}, ${scaleY})`,
+        transform: `scale(1, ${initScaleY}) translate(0px, 0px) scale(${scaleX}, ${scaleY})`,
       });
     } else if (type === "bottom") {
       const topElement = document.querySelector(
         `.text-pressure-title.top.visual`
       );
       const topElementHeight = topElement.getBoundingClientRect().height;
-      const calcContainerHeight = calcContainer.getBoundingClientRect().height;
       const scaleY = getScale(
-        sectionRect.height - topElementHeight,
-        calcContainerHeight
+        calcContainer.getBoundingClientRect().height,
+        sectionRect.height - topElementHeight
       );
       setStyles(visualContainer, {
         transform: `translate(0px, ${topElementHeight}px) scale(${scaleX}, ${scaleY})`,
