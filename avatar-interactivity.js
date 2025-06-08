@@ -26,16 +26,18 @@ const onMouseOverAvatar = (avatarIndex) => {
   setStyles(otherAvatar, {
     transform: `translateX(calc(var(--hover-translate) * ${isLeft ? 1 : -1}))`,
   });
-  setStyles(textLeft, {
-    transform: `translateX(calc(calc(var(--hover-translate) * ${
-      isLeft ? 0.5 : 1
-    }) * -1))`,
-  });
-  setStyles(textRight, {
-    transform: `translateX(calc(calc(var(--hover-translate) * ${
-      isLeft ? 1 : 0.5
-    }) * 1))`,
-  });
+  if (window.innerWidth > 480) {
+    setStyles(textLeft, {
+      transform: `translateX(calc(calc(var(--hover-translate) * ${
+        isLeft ? 0.5 : 1
+      }) * -1))`,
+    });
+    setStyles(textRight, {
+      transform: `translateX(calc(calc(var(--hover-translate) * ${
+        isLeft ? 1 : 0.5
+      }) * 1))`,
+    });
+  }
 
   // show tooltip with animation
   setStyles(tooltip, {
