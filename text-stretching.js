@@ -166,8 +166,26 @@ const onEmailLinkClick = async (element) => {
     letterElement.textContent = linkCopiedText[index];
   });
 
-  // copy to clipboard
-  await navigator.clipboard.writeText(originalEmailText);
+  // copy to clipboard, with fallback for localhost / old browsers
+  try {
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(originalEmailText);
+    } else {
+      const input = document.createElement("input");
+      input.style.opacity = "0";
+      input.style.position = "fixed";
+      input.value = originalEmailText;
+      document.body.appendChild(input);
+
+      input.focus();
+      input.setSelectionRange(0, input.value.length);
+      document.execCommand("copy");
+
+      input.remove();
+    }
+  } catch (error) {
+    console.error("Failed to copy text", error);
+  }
   await wait(2);
 
   for (const i of range(3)) {

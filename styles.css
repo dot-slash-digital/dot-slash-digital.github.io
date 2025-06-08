@@ -68,6 +68,7 @@ body {
   top: var(--global-gap);
   left: var(--global-gap);
   width: calc(100% - calc(var(--global-gap) * 2));
+  user-select: none;
 }
 
 #main .text-pressure-title.visual {
@@ -97,6 +98,10 @@ body {
   font-weight: 500;
   line-height: 1;
   font-variation-settings: "wdth" 100;
+  text-rendering: optimizeSpeed;
+  /* fixes safari auto-italicizing the font */
+  font-style: italic;
+  font-synthesis: weight;
 }
 
 @supports (text-box: trim-both cap alphabetic) {
@@ -151,6 +156,7 @@ body {
   font-size: 20px;
   font-family: "Geist Mono", monospace;
   font-weight: 500;
+  transition: 0.25s font-weight;
 }
 
 #footer #email {
