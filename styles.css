@@ -18,6 +18,10 @@ body {
   margin: 0;
   background-color: black;
   --transition-speed: 0.2s;
+
+  @media (any-pointer: fine) {
+    overscroll-behavior-y: none;
+  }
 }
 
 #page-container {
@@ -80,17 +84,35 @@ body {
   font-variation-settings: "wdth" 100;
 }
 
-#main span {
-  text-box: trim-both cap alphabetic;
+@supports (text-box: trim-both cap alphabetic) {
+  #main span {
+    text-box: trim-both cap alphabetic;
+  }
+
+  #main .text-pressure-title.visual.top span[data-char="D"],
+  #main .text-pressure-title.visual.bottom span[data-char="D"] {
+    transform: scale(1.14, 1) translate(-2.5%, 0px);
+  }
+  #main .text-pressure-title.visual.top span[data-char="H"],
+  #main .text-pressure-title.visual.bottom span[data-char="L"] {
+    transform: scale(1.09, 1);
+  }
 }
 
-#main .text-pressure-title.visual.top span[data-char="D"],
-#main .text-pressure-title.visual.bottom span[data-char="D"] {
-  transform: scale(1.14, 1) translate(-2.5%, 0px);
-}
-#main .text-pressure-title.visual.top span[data-char="H"],
-#main .text-pressure-title.visual.bottom span[data-char="L"] {
-  transform: scale(1.09, 1);
+@supports not (text-box: trim-both cap alphabetic) {
+  #main span {
+    transform: scale(1, 1.4) translate(0px, 18px);
+  }
+
+  #main .text-pressure-title.visual.top span[data-char="D"],
+  #main .text-pressure-title.visual.bottom span[data-char="D"] {
+    transform: scale(1, 1.4) translate(0px, 18px) scale(1.14, 1)
+      translate(-2.5%, 0px);
+  }
+  #main .text-pressure-title.visual.top span[data-char="H"],
+  #main .text-pressure-title.visual.bottom span[data-char="L"] {
+    transform: scale(1, 1.4) translate(0px, 18px) scale(1.09, 1);
+  }
 }
 
 /* FOOTER */

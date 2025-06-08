@@ -50,7 +50,6 @@ const initTextPressure = (type) => {
   } = getElements(type);
   let sectionRect = main.getBoundingClientRect();
 
-  console.log(sectionRect);
   const mouse = {
     x: sectionRect.width / 2,
     y: sectionRect.height / 2,
@@ -102,7 +101,7 @@ const initTextPressure = (type) => {
     const gradual = timeDiff < 3000 ? (1 - timeDiff / 3000) * 5 * 15 : 15;
 
     mouse.x += roundToDecimalPlace(
-      (cursor.x - mouse.x) / gradual,
+      (cursor.x - mouse.x) / (gradual * 2),
       CURSOR_PRECISION
     );
     mouse.y += roundToDecimalPlace(
@@ -172,7 +171,10 @@ const initTextPressure = (type) => {
         calcContainer.getBoundingClientRect().height,
         sectionRect.height * 0.5
       );
-      const scaleY = getScale(sectionRect.height * 0.5, scaledYPosPx);
+      const scaleY = getScale(
+        sectionRect.height * 0.5,
+        sectionRect.height - scaledYPosPx
+      );
       setStyles(visualContainer, {
         transform: `scale(1, ${initScaleY}) translate(0px, 0px) scale(${scaleX}, ${scaleY})`,
       });
