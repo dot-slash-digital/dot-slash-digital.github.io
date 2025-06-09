@@ -1,6 +1,6 @@
 const footerScrollInit = () => {
   const main = document.getElementById("main");
-  window.addEventListener("scroll", (event) => {
+  window.addEventListener("scroll", () => {
     setCssVars(main, { "--scroll-amount": `${window.scrollY}px` });
   });
 };

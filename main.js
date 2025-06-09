@@ -4,17 +4,50 @@ const GAP = 8;
 const GRADUAL_SPEED = 25;
 const MIN_WDTH = 25;
 const MAX_WDTH = 150;
-const startTime = Date.now();
+const START_TIME = Date.now();
+const TEXT = {
+  desktop: {
+    top: "DOTSLASH",
+    bottom: "DIGITAL",
+  },
+  mobile: {
+    top: "DOT",
+    bottom: "SLASH",
+  },
+};
+
+const initText = () => {
+  const viewport = window.matchMedia("(any-pointer: fine)").matches
+    ? "desktop"
+    : "mobile";
+  const main = document.getElementById("main");
+
+  ["top", "bottom"].forEach((type) => {
+    const visualContainer = main.querySelector(
+      `.text-pressure-title.${type}.visual`
+    );
+    const calcContainer = main.querySelector(
+      `.text-pressure-title.${type}.calc`
+    );
+
+    TEXT[viewport][type].split("").forEach((char) => {
+      [visualContainer, calcContainer].forEach((container) => {
+        const span = document.createElement("span");
+        span.textContent = char;
+        span.setAttribute("data-char", char);
+        container.appendChild(span);
+      });
+    });
+  });
+};
 
 const getElements = (type) => {
   const main = document.getElementById("main");
 
-  const visualContainer = document.querySelector(
+  const visualContainer = main.querySelector(
     `.text-pressure-title.${type}.visual`
   );
-  const calcContainer = document.querySelector(
-    `.text-pressure-title.${type}.calc`
-  );
+  const calcContainer = main.querySelector(`.text-pressure-title.${type}.calc`);
   const charSpans = [...visualContainer.querySelectorAll("span")];
   const calcCharSpans = [...calcContainer.querySelectorAll("span")];
   const text = charSpans.map((cs) => cs.getAttribute("data-char")).join("");
@@ -59,7 +92,7 @@ const initTextPressure = (type) => {
     y: sectionRect.height / 2,
     isOutside: false,
   };
-  const charWdths = charSpans.map((span) => 100);
+  const charWdths = charSpans.map((_) => 100);
 
   window.addEventListener("mousemove", (e) => {
     const isOutside = isOutsideElementBounds(sectionRect, {
@@ -97,7 +130,7 @@ const initTextPressure = (type) => {
 
   // animation loop
   function animate() {
-    const timeDiff = Math.abs(startTime - Date.now());
+    const timeDiff = Math.abs(START_TIME - Date.now());
     const gradual = timeDiff < 3000 ? (1 - timeDiff / 3000) * 5 * 15 : 15;
 
     mouse.x += roundToDecimalPlace(
@@ -198,18 +231,14 @@ const initTextPressure = (type) => {
   }
 
   window.addEventListener("resize", setSize);
-  document.addEventListener("scroll", setSize);
+  window.addEventListener("scroll", setSize);
   setSize();
   animate();
 };
 
-// scroll to top on page load
-window.onbeforeunload = function () {
-  window.scrollTo(0, 0);
-};
-
 // wait until all fonts have been loaded
 document.fonts.ready.then(() => {
+  initText();
   initTextPressure("top");
   initTextPressure("bottom");
 });

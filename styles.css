@@ -308,6 +308,7 @@ body {
   will-change: transform;
   transform: translate3d(calc(var(--x) * 1px), calc(var(--y) * 1px), 0);
   z-index: 1;
+  user-select: none;
 }
 
 #bouncing-logo img {
