@@ -58,6 +58,7 @@ body {
   --scroll-amount: 0px;
   --visual-scale-y-top: 1.52;
   --visual-scale-y-bottom: 1.495;
+  --default-wdth: 100;
   background-color: var(--color-gray-1);
   height: calc(100dvh - calc(var(--global-gap) * 2) - var(--scroll-amount));
   display: flex;
@@ -97,7 +98,7 @@ body {
   font-size: inherit;
   font-weight: 500;
   line-height: 1;
-  font-variation-settings: "wdth" 100;
+  font-variation-settings: "wdth" var(--default-wdth);
   text-rendering: optimizeSpeed;
   /* fixes safari auto-italicizing the font */
   font-style: italic;

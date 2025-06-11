@@ -1,10 +1,10 @@
 const MIN_FONT_SIZE = 24;
 const CURSOR_PRECISION = 5;
 const GAP = 8;
-const GRADUAL_SPEED = 25;
 const MIN_WDTH = 25;
 const MAX_WDTH = 150;
 const START_TIME = Date.now();
+const GRADUAL_INTRO_SECONDS = 2.5;
 const TEXT = {
   desktop: {
     top: "DOTSLASH",
@@ -15,6 +15,9 @@ const TEXT = {
     bottom: "SLASH",
   },
 };
+const DEFAULT_WDTH = parseInt(
+  getCssVar(document.getElementById("main"), "--default-wdth")
+);
 
 const initText = () => {
   const viewport = window.matchMedia("(any-pointer: fine)").matches
@@ -92,7 +95,7 @@ const initTextPressure = (type) => {
     y: sectionRect.height / 2,
     isOutside: false,
   };
-  const charWdths = charSpans.map((_) => 100);
+  const charWdths = charSpans.map((_) => DEFAULT_WDTH);
 
   window.addEventListener("mousemove", (e) => {
     const isOutside = isOutsideElementBounds(sectionRect, {
@@ -131,14 +134,18 @@ const initTextPressure = (type) => {
   // animation loop
   function animate() {
     const timeDiff = Math.abs(START_TIME - Date.now());
-    const gradual = timeDiff < 3000 ? (1 - timeDiff / 3000) * 5 * 15 : 15;
+    const timeRemaining = getBoundedValue(
+      1 - timeDiff / (GRADUAL_INTRO_SECONDS * 1000),
+      [0, 1]
+    );
+    const gradual = 15 + Math.pow(timeRemaining * 75, 2);
 
     mouse.x += roundToDecimalPlace(
-      (cursor.x - mouse.x) / (gradual * 2),
+      (cursor.x - mouse.x) / gradual,
       CURSOR_PRECISION
     );
     mouse.y += roundToDecimalPlace(
-      (cursor.y - mouse.y) / gradual,
+      (cursor.y - mouse.y) / (gradual * 0.5),
       CURSOR_PRECISION
     );
 
@@ -153,11 +160,16 @@ const initTextPressure = (type) => {
       const distX = centerX - mouse.x;
 
       const prevWdth = charWdths[index];
-      const wdthDifference = prevWdth - MIN_WDTH;
-
-      const wdth = cursor.isOutside
-        ? Math.max(prevWdth - wdthDifference / GRADUAL_SPEED, MIN_WDTH)
+      const newWdth = cursor.isOutside
+        ? DEFAULT_WDTH
         : getWdthVariation(maxDist.x, distX, MIN_WDTH, MAX_WDTH);
+      // negative = getting smaller
+      // positive = getting larger
+      const gradualDiff = (newWdth - prevWdth) / gradual;
+      const wdth = getBoundedValue(prevWdth + gradualDiff, [
+        MIN_WDTH,
+        MAX_WDTH,
+      ]);
 
       charWdths[index] = wdth;
       setStyles(charSpan, { fontVariationSettings: `'wdth' ${wdth}` });
@@ -171,16 +183,15 @@ const initTextPressure = (type) => {
     );
     const scaleX = sectionRect.width / wdthVariationTotal;
 
-    if (cursor.isOutside) {
-      const topElement = document.querySelector(
-        `.text-pressure-title.top.visual`
-      );
-      const topElementHeight = topElement.getBoundingClientRect().height;
+    const topElement = document.querySelector(
+      `.text-pressure-title.top.visual`
+    );
+    const prevTopHeight = topElement.getBoundingClientRect().height;
 
+    if (cursor.isOutside) {
       const topTargetHeight = sectionRect.height * 0.5 - GAP;
-      const topGradualDifference =
-        (topElementHeight - topTargetHeight) / GRADUAL_SPEED;
-      const topNewHeight = topElementHeight - topGradualDifference;
+      const topGradualDifference = (prevTopHeight - topTargetHeight) / gradual;
+      const topNewHeight = prevTopHeight - topGradualDifference;
       const scaleY = getScale(
         calcContainer.getBoundingClientRect().height,
         type === "top" ? topNewHeight : sectionRect.height - topNewHeight - GAP
@@ -199,30 +210,31 @@ const initTextPressure = (type) => {
       const scaledYPosPx =
         sectionRect.height / 2 +
         yPosPercFromCenter * 0.8 * (sectionRect.height / 2);
+      const newHeight = sectionRect.height - scaledYPosPx;
 
-      const initScaleY = getScale(
-        calcContainer.getBoundingClientRect().height,
-        sectionRect.height * 0.5
-      );
+      const trueHeight = calcContainer.getBoundingClientRect().height;
+      const defaultHeight = sectionRect.height * 0.5;
+      const gradualDiffHeight = (newHeight - prevTopHeight) / gradual;
+
+      const initScaleY = getScale(trueHeight, defaultHeight);
       const scaleY = getScale(
-        sectionRect.height * 0.5,
-        sectionRect.height - scaledYPosPx
+        defaultHeight,
+        getBoundedValue(prevTopHeight + gradualDiffHeight, [
+          sectionRect.height * 0.1,
+          sectionRect.height * 0.9,
+        ])
       );
       setStyles(visualContainer, {
         transform: `scale(1, ${initScaleY}) translate(0px, 0px) scale(${scaleX}, ${scaleY})`,
       });
     } else if (type === "bottom") {
-      const topElement = document.querySelector(
-        `.text-pressure-title.top.visual`
-      );
-      const topElementHeight = topElement.getBoundingClientRect().height;
       const scaleY = getScale(
         calcContainer.getBoundingClientRect().height,
-        sectionRect.height - topElementHeight - GAP
+        sectionRect.height - prevTopHeight - GAP
       );
       setStyles(visualContainer, {
         transform: `translate(0px, ${
-          topElementHeight + GAP
+          prevTopHeight + GAP
         }px) scale(${scaleX}, ${scaleY})`,
       });
     }
@@ -233,6 +245,17 @@ const initTextPressure = (type) => {
   window.addEventListener("resize", setSize);
   window.addEventListener("scroll", setSize);
   setSize();
+
+  // setting initial size of top and bottom
+  const topElement = document.querySelector(`.text-pressure-title.top.calc`);
+  const topHeight = topElement.getBoundingClientRect().height;
+  setStyles(visualContainer, {
+    transform: `scale(1, ${getScale(
+      topHeight,
+      sectionRect.height * 0.5 - GAP
+    )}) translate(0px, 0px) scale(1, 1)`,
+  });
+
   animate();
 };
 
