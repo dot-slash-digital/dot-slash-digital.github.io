@@ -55,3 +55,27 @@ const roundToDecimalPlace = (value, numPlaces) => {
 const getPercentageInRangeFromValue = (value, [start, end]) => {
   return (value - start) / (end - start);
 };
+
+// when class is added to element, execute callback
+const onClassAdded = (element, className, callback) => {
+  const observerOptions = {
+    attributes: true,
+    attributeFilter: ["class"],
+  };
+
+  const observer = new MutationObserver((mutationsList) => {
+    for (const mutation of mutationsList) {
+      if (
+        mutation.type === "attributes" &&
+        mutation.attributeName === "class"
+      ) {
+        const newClassList = element.classList;
+        if (newClassList.contains(className)) {
+          callback();
+        }
+      }
+    }
+  });
+
+  observer.observe(element, observerOptions);
+};

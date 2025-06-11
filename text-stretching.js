@@ -202,10 +202,8 @@ const onEmailLinkClick = async (element) => {
   isAnimating = false;
 };
 
-// wait until fonts are all loaded
-document.fonts.ready.then(() => {
+onClassAdded(document.getElementById("main"), "ready", () => {
   const element = document.getElementById("email");
-
   textStretchingInit(element);
   element.addEventListener("click", () => onEmailLinkClick(element));
 });

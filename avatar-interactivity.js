@@ -97,4 +97,7 @@ const avatarInteractivityInit = () => {
     avatar.addEventListener("mouseout", () => onMouseOutAvatar(index));
   });
 };
-avatarInteractivityInit();
+
+onClassAdded(document.getElementById("main"), "ready", () => {
+  avatarInteractivityInit();
+});

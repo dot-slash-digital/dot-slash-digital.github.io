@@ -6,9 +6,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dot Slash Digital</title>
 
+    <!-- styles for loading screen -->
+    <style>
+      #loading-overlay,
+      #loading-background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+      }
+
+      #loading-overlay {
+        background: var(--color-white);
+        z-index: 100;
+        transition: width 2s ease;
+        width: calc(100% * calc(1 - var(--loading-percentage, 0)));
+      }
+
+      #loading-background {
+        background: var(--color-black);
+        z-index: 99;
+        opacity: 1;
+        transition: opacity 1s ease-in;
+      }
+
+      #loading-background.fade-out {
+        user-select: none;
+        opacity: 0;
+      }
+    </style>
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
+    <div id="loading-overlay"></div>
+    <div id="loading-background"></div>
     <div id="page-container">
       <div id="main" class="section">
         <div class="text-pressure-title top calc"></div>
@@ -48,6 +80,7 @@
       <img src="./logo.png" />
     </div>
     <script src="./utils.js"></script>
+    <script src="./loading.js"></script>
     <script src="./main.js"></script>
     <script src="./bouncing-logo.js"></script>
     <script src="./text-stretching.js"></script>

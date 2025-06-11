@@ -67,8 +67,10 @@ class BouncingLogo {
   }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+onClassAdded(document.getElementById("main"), "ready", () => {
   const logo = new BouncingLogo("bouncing-logo");
   window.addEventListener("resize", () => logo.updateViewport());
-  logo.startAnimation();
+  setTimeout(() => {
+    logo.startAnimation();
+  }, 1000);
 });

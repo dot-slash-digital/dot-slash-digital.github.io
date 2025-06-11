@@ -3,7 +3,6 @@ const CURSOR_PRECISION = 5;
 const GAP = 8;
 const MIN_WDTH = 25;
 const MAX_WDTH = 150;
-const START_TIME = Date.now();
 const GRADUAL_INTRO_SECONDS = 2.5;
 const TEXT = {
   desktop: {
@@ -76,6 +75,7 @@ const getScale = (oldValue, newValue) => {
 };
 
 const initTextPressure = (type) => {
+  let startTime = Date.now();
   const {
     main,
     visualContainer,
@@ -133,7 +133,7 @@ const initTextPressure = (type) => {
 
   // animation loop
   function animate() {
-    const timeDiff = Math.abs(START_TIME - Date.now());
+    const timeDiff = Math.abs(startTime - Date.now());
     const timeRemaining = getBoundedValue(
       1 - timeDiff / (GRADUAL_INTRO_SECONDS * 1000),
       [0, 1]
@@ -259,8 +259,7 @@ const initTextPressure = (type) => {
   animate();
 };
 
-// wait until all fonts have been loaded
-document.fonts.ready.then(() => {
+onClassAdded(document.getElementById("main"), "ready", () => {
   initText();
   initTextPressure("top");
   initTextPressure("bottom");
