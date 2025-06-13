@@ -5,6 +5,6 @@ const footerScrollInit = () => {
   });
 };
 
-onClassAdded(document.getElementById("main"), "ready", () => {
+onClassAdded(document.body, "ready", () => {
   footerScrollInit();
 });

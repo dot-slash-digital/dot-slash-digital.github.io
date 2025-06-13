@@ -202,7 +202,7 @@ const onEmailLinkClick = async (element) => {
   isAnimating = false;
 };
 
-onClassAdded(document.getElementById("main"), "ready", () => {
+onClassAdded(document.body, "ready", () => {
   const element = document.getElementById("email");
   textStretchingInit(element);
   element.addEventListener("click", () => onEmailLinkClick(element));

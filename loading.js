@@ -9,8 +9,13 @@ class ResourceLoader {
   onComplete() {
     setCssVars(this.loadingOverlay, { "--loading-percentage": 1 });
 
+    const deviceType = window.matchMedia("(any-pointer: fine)").matches
+      ? "desktop"
+      : "mobile";
+    document.body.setAttribute("data-device-type", deviceType);
+
     setTimeout(() => {
-      document.getElementById("main").classList.add("ready");
+      document.body.classList.add("ready");
       window.scrollTo(0, 0);
       this.loadingBackground.classList.add("fade-out");
       setTimeout(() => {

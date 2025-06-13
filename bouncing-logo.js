@@ -67,7 +67,7 @@ class BouncingLogo {
   }
 }
 
-onClassAdded(document.getElementById("main"), "ready", () => {
+onClassAdded(document.body, "ready", () => {
   const logo = new BouncingLogo("bouncing-logo");
   window.addEventListener("resize", () => logo.updateViewport());
   setTimeout(() => {

@@ -19,9 +19,7 @@ const DEFAULT_WDTH = parseInt(
 );
 
 const initText = () => {
-  const viewport = window.matchMedia("(any-pointer: fine)").matches
-    ? "desktop"
-    : "mobile";
+  const { deviceType } = document.body.dataset;
   const main = document.getElementById("main");
 
   ["top", "bottom"].forEach((type) => {
@@ -32,7 +30,7 @@ const initText = () => {
       `.text-pressure-title.${type}.calc`
     );
 
-    TEXT[viewport][type].split("").forEach((char) => {
+    TEXT[deviceType][type].split("").forEach((char) => {
       [visualContainer, calcContainer].forEach((container) => {
         const span = document.createElement("span");
         span.textContent = char;
@@ -93,7 +91,7 @@ const initTextPressure = (type) => {
   const cursor = {
     x: sectionRect.width / 2,
     y: sectionRect.height / 2,
-    isOutside: false,
+    isOutside: true,
   };
   const charWdths = charSpans.map((_) => DEFAULT_WDTH);
 
@@ -110,12 +108,23 @@ const initTextPressure = (type) => {
   window.addEventListener(
     "touchmove",
     (e) => {
-      const t = e.touches[0];
-      cursor.x = t.clientX;
-      cursor.y = t.clientY;
+      const { clientX, clientY } = e.touches[0];
+
+      const isOutside = isOutsideElementBounds(sectionRect, {
+        x: clientX,
+        y: clientY,
+      });
+
+      cursor.x = clientX;
+      cursor.y = clientY;
+      cursor.isOutside = isOutside;
     },
     { passive: false }
   );
+  // when touch is released (for mobile), reset text positioning
+  window.addEventListener("touchend", () => {
+    cursor.isOutside = true;
+  });
 
   // on viewport resize
   function setSize() {
@@ -259,7 +268,7 @@ const initTextPressure = (type) => {
   animate();
 };
 
-onClassAdded(document.getElementById("main"), "ready", () => {
+onClassAdded(document.body, "ready", () => {
   initText();
   initTextPressure("top");
   initTextPressure("bottom");
