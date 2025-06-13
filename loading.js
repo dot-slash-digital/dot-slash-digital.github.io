@@ -19,6 +19,7 @@ class ResourceLoader {
       window.scrollTo(0, 0);
       this.loadingBackground.classList.add("fade-out");
       setTimeout(() => {
+        this.loadingOverlay.style.display = "none";
         this.loadingBackground.style.display = "none";
       }, 1000);
     }, 2000);
