@@ -220,6 +220,7 @@ body:not(.ready) {
   transition: var(--transition-speed) transform ease;
   transform: scale(1) translateX(0px);
   pointer-events: none;
+  background-color: var(--color-white);
 }
 
 #footer .right-col .avatar .tooltip {
