@@ -6,14 +6,6 @@
   src: url("./geist-mono-variable.ttf") format("truetype");
 }
 
-@font-face {
-  font-family: "Nickel Gothic";
-  font-weight: 100 900;
-  font-style: normal;
-  font-display: swap;
-  src: url("./nickel-gothic-variable-trial.ttf") format("truetype");
-}
-
 :root {
   --global-gap: 24px;
   --color-white: #f1f1f1;
@@ -102,7 +94,7 @@ body:not(.ready) {
 #main .text-pressure-title span {
   text-transform: uppercase;
   color: var(--color-white);
-  font-family: "Nickel Gothic", monospace;
+  font-family: "nickel-gothic-variable", sans-serif;
   font-size: inherit;
   font-weight: 500;
   line-height: 1;
