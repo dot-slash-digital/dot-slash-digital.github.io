@@ -138,7 +138,7 @@ const textStretchingInit = (element) => {
 
 const alphabet = "abcdefghijklmnopqrstuvwxyz!@#$%&?";
 const originalEmailText = "hi@dotslashdigital.com";
-const linkCopiedText = "---  link copied!  ---";
+const linkCopiedText = "---- email copied ----";
 
 const getRandomChar = () => {
   const index = Math.floor(Math.random() * alphabet.length);

@@ -343,7 +343,7 @@ body[data-device-type="mobile"] #footer .right-col .avatar.desktop {
   will-change: transform;
   transform: translate3d(calc(var(--x) * 1px), calc(var(--y) * 1px), 0);
   z-index: 1;
-  user-select: none;
+  pointer-events: none;
   mix-blend-mode: exclusion;
 }
 
