@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Icon Components Viewer</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="usage-banner">
+      <div class="usage-label">Usage:</div>
+      <code class="usage-code">&lt;Icon size={24} type="search" /&gt;</code>
+    </div>
+    <div class="container">
+      <header>
+        <h1>Icon Components</h1>
+
+        <div class="search-container">
+          <input
+            type="text"
+            id="search"
+            placeholder="Search icons..."
+            autocomplete="off"
+          />
+          <span class="icon-count">Loading...</span>
+        </div>
+      </header>
+
+      <div id="icons-grid"></div>
+
+      <div id="toast" class="toast">Copied to clipboard!</div>
+    </div>
+
+    <script type="module" src="./viewer.js"></script>
+  </body>
+</html>
