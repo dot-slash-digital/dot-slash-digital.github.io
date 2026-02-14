@@ -4,17 +4,18 @@ let filteredIcons = [];
 
 // Fetch and initialize
 fetch('./icons-data.json')
-  .then(response => response.json())
-  .then(data => {
+  .then((response) => response.json())
+  .then((data) => {
     iconEntries = data;
     filteredIcons = [...iconEntries];
     renderIcons(filteredIcons);
   })
-  .catch(err => {
+  .catch((err) => {
     console.error('Failed to load icons data:', err);
     const grid = document.getElementById('icons-grid');
     if (grid) {
-      grid.innerHTML = '<div class="no-results">Failed to load icons. Please run: npm run dev:icons</div>';
+      grid.innerHTML =
+        '<div class="no-results">Failed to load icons. Please run: npm run dev:icons</div>';
     }
   });
 
@@ -69,26 +70,27 @@ function renderIcons(icons) {
 
 // Copy to clipboard with toast notification
 function copyToClipboard(text) {
-  navigator.clipboard.writeText(text).then(() => {
-    showToast();
-  }).catch(err => {
-    console.error('Failed to copy:', err);
-    // Fallback for older browsers
-    const textArea = document.createElement('textarea');
-    textArea.value = text;
-    textArea.style.position = 'fixed';
-    textArea.style.left = '-999999px';
-    document.body.appendChild(textArea);
-    textArea.focus();
-    textArea.select();
-    try {
-      document.execCommand('copy');
-      showToast();
-    } catch (err) {
-      console.error('Fallback copy failed:', err);
-    }
-    document.body.removeChild(textArea);
-  });
+  navigator.clipboard
+    .writeText(text)
+    .then(() => showToast())
+    .catch((err) => {
+      console.error('Failed to copy:', err);
+      // Fallback for older browsers
+      const textArea = document.createElement('textarea');
+      textArea.value = text;
+      textArea.style.position = 'fixed';
+      textArea.style.left = '-999999px';
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+      try {
+        document.execCommand('copy');
+        showToast();
+      } catch (err) {
+        console.error('Fallback copy failed:', err);
+      }
+      document.body.removeChild(textArea);
+    });
 }
 
 // Show toast notification
@@ -111,8 +113,7 @@ function handleSearch(query) {
     filteredIcons = [...iconEntries];
   } else {
     filteredIcons = iconEntries.filter(({ name, typeName }) => {
-      return name.toLowerCase().includes(searchTerm) ||
-             typeName.toLowerCase().includes(searchTerm);
+      return name.toLowerCase().includes(searchTerm) || typeName.toLowerCase().includes(searchTerm);
     });
   }
 
